@@ -6,7 +6,7 @@ public class Coordinate {
 
     public Coordinate(char letter, int number) {
         this.number = number;
-        this.letter = letter;
+        this.letter = Character.toUpperCase(letter);
     }
 
     public int getNumber() {
@@ -52,5 +52,15 @@ public class Coordinate {
     @Override
     public String toString() {
         return "("+ letter + "," + number + " )";
+    }
+
+
+    //we are override equals to compare objects. no memory direction.
+    @Override
+    public boolean equals(Object o){
+        if (!(o instanceof Coordinate))
+            return false;
+        Coordinate c = (Coordinate) o;
+        return (c.getLetter() == this.letter) && (c.getNumber() == this.number);
     }
 }
