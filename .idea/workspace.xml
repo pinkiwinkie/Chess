@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="Coordinate">
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/CoordinateTest.java" afterDir="false" />
+    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="CoordinateTest">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Cell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Coordinate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -48,7 +50,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/home/eruizm/IdeaProjects/POO"
+    "last_opened_file_path": "/home/eruizm/IdeaProjects/Chess"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -59,7 +61,14 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CoordinateTest.right">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Chess" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CoordinateTest.down" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <extension name="coverage">
@@ -110,8 +119,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CoordinateTest.right" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.CoordinateTest.down" />
+        <item itemvalue="JUnit.CoordinateTest.right" />
         <item itemvalue="JUnit.CoordinateTest.up" />
       </list>
     </recent_temporary>
@@ -146,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673292211665</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="CoordinateTest">
+      <created>1673377581070</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673377581070</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +180,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="Coordinate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Coordinate" />
+    <MESSAGE value="CoordinateTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="CoordinateTest" />
   </component>
 </project>
