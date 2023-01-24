@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Arrays;
-
 public class Board {
     private Cell[][] cells;
 
@@ -16,7 +14,7 @@ public class Board {
 
     @Override
     public String toString() {
-        String output = "  A B C D E F G H\n";
+        String output = "   A  B  C  D  E  F  G  H\n";
         for (int i = 0; i < 8; i++) {
             output += (i + 1) + " ";
             for (int j = 0; j < 8; j++) {
@@ -24,7 +22,7 @@ public class Board {
             }
             output += " " + (i + 1) + "\n";
         }
-        output += "  A B C D E F G H";
+        output += "   A  B  C  D  E  F  G  H";
         return output;
     }
 }
