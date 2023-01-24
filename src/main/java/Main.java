@@ -12,5 +12,11 @@ public class Main {
 //        System.out.println(whiteKnight);
 //        Piece blackKnight = new Piece(Piece.Type.BLACK_KNIGHT, new Cell(new Board(), c1));
 //        System.out.println(blackKnight);
+        board.placePieces();
+        System.out.println(board);
+
+//        Coordinate[] coordinates = board.getCell(new Coordinate('C',6)).getPiece().getNextMovements();
+//        board.highlight(coordinates);
+//        System.out.println(board);
     }
 }

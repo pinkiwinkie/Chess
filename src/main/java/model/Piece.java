@@ -6,18 +6,31 @@ import static com.diogonunes.jcolor.Ansi.colorize;
 public abstract class Piece {
     private Type type;
     private Cell cell;
-
     public Piece(Type type, Cell cell){
         this.cell = cell;
         this.type = type;
     }
+
+    public Color getColor() {
+        return type.color;
+    }
+
+    public Cell getCell() {
+        return cell;
+    }
+
+    public void putInYourPlace(){
+        cell.setPiece(this);
+    }
+
     public abstract Coordinate[] getNextMovements();
+
     @Override
     public String toString(){
-        return colorize(type.getShape(),type.getColor().pieceColor);
+        return colorize(type.toString(),type.color.getPieceColor(),cell.getColor().getAttribute());
     }
     public enum Color {
-        WHITE(Attribute.TEXT_COLOR(250)),
+        WHITE(Attribute.TEXT_COLOR(255)),
         BLACK(Attribute.TEXT_COLOR(16));
 
         private final Attribute pieceColor;
@@ -66,6 +79,11 @@ public abstract class Piece {
 
         public Color getColor() {
             return color;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(shape);
         }
     }
 
