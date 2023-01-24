@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="CoordinateTest">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Cell.java" afterDir="false" />
+    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="Board and Cells">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Piece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673377581070</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Board and Cells">
+      <created>1674578980547</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1674578980547</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,6 +175,11 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="Coordinate" />
     <MESSAGE value="CoordinateTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="CoordinateTest" />
+    <MESSAGE value="Board and Cells" />
+    <option name="LAST_COMMIT_MESSAGE" value="Board and Cells" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
