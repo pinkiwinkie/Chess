@@ -1,8 +1,12 @@
 package model;
 
 import model.pieces.bishop.BlackBishop;
+import model.pieces.king.BlackKing;
 import model.pieces.knight.BlackKnight;
 import model.pieces.knight.WhiteKnight;
+import model.pieces.pawn.BlackPawn;
+import model.pieces.pawn.WhitePawn;
+import model.pieces.rook.BlackRook;
 
 public class Board {
     private Cell[][] cells;
@@ -42,6 +46,19 @@ public class Board {
         piece.putInYourPlace();
         piece = new BlackBishop(getCell(new Coordinate('F',8)));
         piece.putInYourPlace();
+        piece = new WhitePawn(getCell(new Coordinate('F',7)));
+        piece.putInYourPlace();
+        piece = new WhitePawn(getCell(new Coordinate('D',7)));
+        piece.putInYourPlace();
+        piece = new BlackPawn(getCell(new Coordinate('E',6)));
+        piece.putInYourPlace();
+        piece = new BlackPawn(getCell(new Coordinate('G',2)));
+        piece.putInYourPlace();
+        piece = new BlackKing(getCell(new Coordinate('D',1)));
+        piece.putInYourPlace();
+        piece = new BlackRook(getCell(new Coordinate('A',1)));
+        piece.putInYourPlace();
+
     }
 
     public void highlight(Coordinate [] coordinates){

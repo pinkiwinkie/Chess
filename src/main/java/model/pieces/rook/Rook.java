@@ -20,30 +20,6 @@ public abstract class Rook extends Piece {
 
         //UP
 
-        c = position.up().up().left();
-        check(c);
-        c = position.up().up().right();
-        check(c);
-
-        //DOWN
-
-        c = position.down().down().right();
-        check(c);
-        c = position.down().down().left();
-
-        //LEFT
-
-        c = position.left().left().down();
-        check(c);
-        c = position.left().left().up();
-        check(c);
-
-        //RIGHT
-
-        c = position.right().right().down();
-        check(c);
-        c = position.right().right().up();
-        check(c);
         return coordinates;
     }
 
@@ -53,6 +29,5 @@ public abstract class Rook extends Piece {
             if (board.getCell(c).isEmpty() ||
                     board.getCell(c).getPiece().getColor() != getColor())
                 coordinates = Tools.add(coordinates,c);
-
     }
 }

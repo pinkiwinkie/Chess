@@ -15,8 +15,12 @@ public class Main {
         board.placePieces();
         System.out.println(board);
 
-//        Coordinate[] coordinates = board.getCell(new Coordinate('C',6)).getPiece().getNextMovements();
-//        board.highlight(coordinates);
-//        System.out.println(board);
+        Coordinate[] coordinates = board.getCell(new Coordinate('G',2)).getPiece().getNextMovements();
+        board.highlight(coordinates);
+        System.out.println(board);
+//        coordinates = board.getCell(new Coordinate('E',8)).getPiece().getNextMovements();
+//        coordinates = board.getCell(new Coordinate('G',2)).getPiece().getNextMovements();
+//        coordinates = board.getCell(new Coordinate('D',1)).getPiece().getNextMovements();
+//        coordinates = board.getCell(new Coordinate('A',1)).getPiece().getNextMovements();
     }
 }

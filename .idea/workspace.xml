@@ -4,30 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="board def">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/bishop/Bishop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/bishop/BlackBishop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/bishop/WhiteBishop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/king/BlackKing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/king/King.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/king/WhiteKing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/knight/BlackKnight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/knight/Knight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/knight/WhiteKnight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/BlackPawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/Pawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/WhitePawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/queen/BlackQueen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/queen/Queen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/queen/WhiteQueen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/rook/BlackRook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/rook/Rook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/pieces/rook/WhiteRook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tools/Tools.java" afterDir="false" />
+    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="make pieces">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/king/BlackKing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/king/BlackKing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/king/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/king/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/king/WhiteKing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/king/WhiteKing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/knight/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/knight/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/BlackPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/BlackPawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/WhitePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/WhitePawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/queen/BlackQueen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/queen/BlackQueen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/queen/WhiteQueen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/queen/WhiteQueen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/rook/BlackRook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/rook/BlackRook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/rook/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/rook/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/rook/WhiteRook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/rook/WhiteRook.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,10 +58,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/home/eruizm/IdeaProjects/Chess/src/main/java/model/pieces/bishop"
+    "last_opened_file_path": "/home/eruizm/IdeaProjects/Chess"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -195,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674582129426</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="make pieces">
+      <created>1674591002182</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674591002182</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,6 +213,7 @@
     <MESSAGE value="Coordinate" />
     <MESSAGE value="CoordinateTest" />
     <MESSAGE value="board def" />
-    <option name="LAST_COMMIT_MESSAGE" value="board def" />
+    <MESSAGE value="make pieces" />
+    <option name="LAST_COMMIT_MESSAGE" value="make pieces" />
   </component>
 </project>

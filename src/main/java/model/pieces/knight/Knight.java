@@ -27,6 +27,7 @@ public abstract class Knight extends Piece {
         c = position.down().down().right();
         check(c);
         c = position.down().down().left();
+        check(c);
 
         //LEFT
 

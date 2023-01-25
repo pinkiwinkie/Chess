@@ -57,13 +57,13 @@ public abstract class Piece {
         WHITE_ROOK("♜", Color.WHITE),
         WHITE_BISHOP("♝", Color.WHITE),
         WHITE_KNIGHT("♞", Color.WHITE),
-        WHITE_PAWN("♙", Color.WHITE),
+        WHITE_PAWN("♟", Color.WHITE),
         BLACK_KING("♚", Color.BLACK),
         BLACK_QUEEN("♛", Color.BLACK),
         BLACK_ROOK("♜", Color.BLACK),
         BLACK_BISHOP("♝", Color.BLACK),
         BLACK_KNIGHT("♞", Color.BLACK),
-        BLACK_PAWN("♙", Color.BLACK);
+        BLACK_PAWN("♟", Color.BLACK);
 
         private String shape;
         private Color color;

@@ -20,30 +20,23 @@ public abstract class King extends Piece {
 
         //UP
 
-        c = position.up().up().left();
-        check(c);
-        c = position.up().up().right();
+        c = position.up();
         check(c);
 
         //DOWN
-
-        c = position.down().down().right();
+        c = position.down();
         check(c);
-        c = position.down().down().left();
 
         //LEFT
 
-        c = position.left().left().down();
-        check(c);
-        c = position.left().left().up();
+        c = position.left();
         check(c);
 
         //RIGHT
 
-        c = position.right().right().down();
+        c = position.right();
         check(c);
-        c = position.right().right().up();
-        check(c);
+
         return coordinates;
     }
 
