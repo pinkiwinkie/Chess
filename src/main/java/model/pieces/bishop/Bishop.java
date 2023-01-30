@@ -9,50 +9,84 @@ import tools.Tools;
 public abstract class Bishop extends Piece {
 
     private Coordinate[] coordinates;
-    public Bishop(Type type, Cell cell){
-        super(type,cell);
+
+    public Bishop(Type type, Cell cell) {
+        super(type, cell);
     }
 
     @Override
     public Coordinate[] getNextMovements() {
         coordinates = new Coordinate[0];
+        Board board = getCell().getBoard();
         Coordinate position = getCell().getCoordinate(), c;
 
-        //UP
+        //UP-LEFT
+        c = position.diagonalUpLeft();
+        while (board.contains(c) && board.getCell(c).isEmpty()) {
+            coordinates = Tools.add(coordinates, c);
+            c = c.diagonalUpLeft();
+        }
 
-        c = position.up().up().left();
-        check(c);
-        c = position.up().up().right();
-        check(c);
+        if (board.contains(c)) {
+            Piece p = board.getCell(c).getPiece();
+            coordinates = p.getColor() != this.getColor()
+                    ? Tools.add(coordinates, c)
+                    : coordinates;
+        }
 
-        //DOWN
+        //UP-RIGHT
 
-        c = position.down().down().right();
-        check(c);
-        c = position.down().down().left();
+        c = position.diagonalUpRight();
+        while (board.contains(c) && board.getCell(c).isEmpty()) {
+            coordinates = Tools.add(coordinates, c);
+            c = c.diagonalUpRight();
+        }
 
-        //LEFT
+        if (board.contains(c)) {
+            Piece p = board.getCell(c).getPiece();
+            coordinates = p.getColor() != this.getColor()
+                    ? Tools.add(coordinates, c)
+                    : coordinates;
+        }
 
-        c = position.left().left().down();
-        check(c);
-        c = position.left().left().up();
-        check(c);
+        //DOWN-RIGHT
+        c = position.diagonalDownRight();
+        while (board.contains(c) && board.getCell(c).isEmpty()) {
+            coordinates = Tools.add(coordinates, c);
+            c = c.diagonalDownRight();
+        }
 
-        //RIGHT
+        if (board.contains(c)) {
+            Piece p = board.getCell(c).getPiece();
+            coordinates = p.getColor() != this.getColor()
+                    ? Tools.add(coordinates, c)
+                    : coordinates;
+        }
 
-        c = position.right().right().down();
-        check(c);
-        c = position.right().right().up();
-        check(c);
+        //DOWN-LEFT
+
+        c=position.diagonalDownLeft();
+        while(board.contains(c) && board.getCell(c).isEmpty()){
+            coordinates = Tools.add(coordinates,c);
+            c=c.diagonalDownLeft();
+        }
+
+        if (board.contains(c)){
+            Piece p = board.getCell(c).getPiece();
+            coordinates = p.getColor() != this.getColor()
+                    ? Tools.add(coordinates,c)
+                    : coordinates;
+        }
+
         return coordinates;
     }
 
-    public void check(Coordinate c){
+    public void check(Coordinate c) {
         Board board = getCell().getBoard();
         if (board.getCell(c) != null)
             if (board.getCell(c).isEmpty() ||
                     board.getCell(c).getPiece().getColor() != getColor())
-                coordinates = Tools.add(coordinates,c);
+                coordinates = Tools.add(coordinates, c);
 
     }
 }

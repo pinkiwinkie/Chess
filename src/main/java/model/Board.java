@@ -44,11 +44,11 @@ public class Board {
         piece.putInYourPlace();
         piece = new BlackBishop(getCell(new Coordinate('C',8)));
         piece.putInYourPlace();
-        piece = new BlackBishop(getCell(new Coordinate('F',8)));
+        piece = new BlackBishop(getCell(new Coordinate('F',4)));
         piece.putInYourPlace();
         piece = new WhitePawn(getCell(new Coordinate('F',7)));
         piece.putInYourPlace();
-        piece = new WhitePawn(getCell(new Coordinate('D',7)));
+        piece = new WhitePawn(getCell(new Coordinate('D',6)));
         piece.putInYourPlace();
         piece = new BlackPawn(getCell(new Coordinate('E',6)));
         piece.putInYourPlace();
@@ -61,6 +61,12 @@ public class Board {
 
     }
 
+    public boolean contains(Coordinate coordinate){
+        return coordinate.getLetter()>='A' &&
+                coordinate.getLetter()<='H' &&
+                coordinate.getNumber()>=1 &&
+                coordinate.getNumber()<=8;
+    }
     public void highlight(Coordinate [] coordinates){
         for (Coordinate c: coordinates)
             getCell(c).highlight();
