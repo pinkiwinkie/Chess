@@ -1,56 +1,48 @@
 package model.pieces.knight;
 
 import model.*;
+import tad.ListCoord;
 import tools.Tools;
 
 public abstract class Knight extends Piece {
 
-    private Coordinate[] coordinates;
+    private ListCoord coordinates;
     public Knight(Type type, Cell cell){
         super(type,cell);
     }
 
     @Override
-    public Coordinate[] getNextMovements() {
-        coordinates = new Coordinate[0];
+    public ListCoord getNextMovements() {
+        coordinates = new ListCoord();
         Coordinate position = getCell().getCoordinate(), c;
 
         //UP
 
         c = position.up().up().left();
-        check(c);
+        check(c,coordinates);
         c = position.up().up().right();
-        check(c);
+        check(c,coordinates);
 
         //DOWN
 
         c = position.down().down().right();
-        check(c);
+        check(c,coordinates);
         c = position.down().down().left();
-        check(c);
+        check(c,coordinates);
 
         //LEFT
 
         c = position.left().left().down();
-        check(c);
+        check(c,coordinates);
         c = position.left().left().up();
-        check(c);
+        check(c,coordinates);
 
         //RIGHT
 
         c = position.right().right().down();
-        check(c);
+        check(c,coordinates);
         c = position.right().right().up();
-        check(c);
+        check(c,coordinates);
         return coordinates;
-    }
-
-    public void check(Coordinate c){
-        Board board = getCell().getBoard();
-        if (board.getCell(c) != null)
-            if (board.getCell(c).isEmpty() ||
-                    board.getCell(c).getPiece().getColor() != getColor())
-                coordinates = Tools.add(coordinates,c);
-
     }
 }

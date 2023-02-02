@@ -1,92 +1,68 @@
 package model.pieces.bishop;
 
-import model.Board;
-import model.Cell;
-import model.Coordinate;
-import model.Piece;
-import tools.Tools;
+import model.*;
+import tad.ListCoord;
 
 public abstract class Bishop extends Piece {
-
-    private Coordinate[] coordinates;
 
     public Bishop(Type type, Cell cell) {
         super(type, cell);
     }
 
     @Override
-    public Coordinate[] getNextMovements() {
-        coordinates = new Coordinate[0];
-        Board board = getCell().getBoard();
-        Coordinate position = getCell().getCoordinate(), c;
+    public ListCoord getNextMovements() {
+        return Bishop.getNextMovementAsBishop(this);
+    }
+
+    public static ListCoord getNextMovementAsBishop(Piece p) {
+        ListCoord coordinates = new ListCoord();
+        Cell cell = p.getCell();
+        Board board = cell.getBoard();
+        Piece.Color color = p.getColor();
+        Coordinate position = cell.getCoordinate(), c;
 
         //UP-LEFT
         c = position.diagonalUpLeft();
-        while (board.contains(c) && board.getCell(c).isEmpty()) {
-            coordinates = Tools.add(coordinates, c);
+        while (board.getCell(c) != null && board.getCell(c).isEmpty()) {
+            coordinates.add(c);
             c = c.diagonalUpLeft();
         }
 
-        if (board.contains(c)) {
-            Piece p = board.getCell(c).getPiece();
-            coordinates = p.getColor() != this.getColor()
-                    ? Tools.add(coordinates, c)
-                    : coordinates;
-        }
+        if (board.getCell(c) != null && board.getCell(c).getPiece().getColor() != color)
+            coordinates.add(c);
 
         //UP-RIGHT
 
         c = position.diagonalUpRight();
-        while (board.contains(c) && board.getCell(c).isEmpty()) {
-            coordinates = Tools.add(coordinates, c);
+        while (board.getCell(c) != null && board.getCell(c).isEmpty()) {
+            coordinates.add(c);
             c = c.diagonalUpRight();
         }
 
-        if (board.contains(c)) {
-            Piece p = board.getCell(c).getPiece();
-            coordinates = p.getColor() != this.getColor()
-                    ? Tools.add(coordinates, c)
-                    : coordinates;
-        }
+        if (board.getCell(c) != null && board.getCell(c).getPiece().getColor() != color)
+            coordinates.add(c);
 
         //DOWN-RIGHT
         c = position.diagonalDownRight();
-        while (board.contains(c) && board.getCell(c).isEmpty()) {
-            coordinates = Tools.add(coordinates, c);
+        while (board.getCell(c) != null && board.getCell(c).isEmpty()) {
+            coordinates.add(c);
             c = c.diagonalDownRight();
         }
 
-        if (board.contains(c)) {
-            Piece p = board.getCell(c).getPiece();
-            coordinates = p.getColor() != this.getColor()
-                    ? Tools.add(coordinates, c)
-                    : coordinates;
-        }
+        if (board.getCell(c) != null && board.getCell(c).getPiece().getColor() != color)
+            coordinates.add(c);
 
         //DOWN-LEFT
 
-        c=position.diagonalDownLeft();
-        while(board.contains(c) && board.getCell(c).isEmpty()){
-            coordinates = Tools.add(coordinates,c);
-            c=c.diagonalDownLeft();
+        c = position.diagonalDownLeft();
+        while (board.getCell(c) != null && board.getCell(c).isEmpty()) {
+            coordinates.add(c);
+            c = c.diagonalDownLeft();
         }
 
-        if (board.contains(c)){
-            Piece p = board.getCell(c).getPiece();
-            coordinates = p.getColor() != this.getColor()
-                    ? Tools.add(coordinates,c)
-                    : coordinates;
-        }
+        if (board.getCell(c) != null && board.getCell(c).getPiece().getColor() != color)
+            coordinates.add(c);
 
         return coordinates;
-    }
-
-    public void check(Coordinate c) {
-        Board board = getCell().getBoard();
-        if (board.getCell(c) != null)
-            if (board.getCell(c).isEmpty() ||
-                    board.getCell(c).getPiece().getColor() != getColor())
-                coordinates = Tools.add(coordinates, c);
-
     }
 }

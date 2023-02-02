@@ -4,48 +4,35 @@ import model.Board;
 import model.Cell;
 import model.Coordinate;
 import model.Piece;
+import tad.ListCoord;
 import tools.Tools;
 
 public abstract class King extends Piece {
-
-    private Coordinate[] coordinates;
-    public King(Type type, Cell cell){
-        super(type,cell);
+    public King(Type type, Cell cell) {
+        super(type, cell);
     }
 
     @Override
-    public Coordinate[] getNextMovements() {
-        coordinates = new Coordinate[0];
+    public ListCoord getNextMovements() {
+        ListCoord coordinates = new ListCoord();
         Coordinate position = getCell().getCoordinate(), c;
 
         //UP
-
         c = position.up();
-        check(c);
+        check(c, coordinates);
 
         //DOWN
         c = position.down();
-        check(c);
+        check(c, coordinates);
 
         //LEFT
-
         c = position.left();
-        check(c);
+        check(c, coordinates);
 
         //RIGHT
-
         c = position.right();
-        check(c);
+        check(c, coordinates);
 
         return coordinates;
-    }
-
-    public void check(Coordinate c){
-        Board board = getCell().getBoard();
-        if (board.getCell(c) != null)
-            if (board.getCell(c).isEmpty() ||
-                    board.getCell(c).getPiece().getColor() != getColor())
-                coordinates = Tools.add(coordinates,c);
-
     }
 }

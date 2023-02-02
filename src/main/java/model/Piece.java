@@ -1,11 +1,13 @@
 package model;
 
 import com.diogonunes.jcolor.Attribute;
+import tad.ListCoord;
 import static com.diogonunes.jcolor.Ansi.colorize;
 
 public abstract class Piece {
+    protected ListCoord coordinates;
     private Type type;
-    private Cell cell;
+    protected Cell cell;
     public Piece(Type type, Cell cell){
         this.cell = cell;
         this.type = type;
@@ -23,8 +25,26 @@ public abstract class Piece {
         cell.setPiece(this);
     }
 
-    public abstract Coordinate[] getNextMovements();
+    public abstract ListCoord getNextMovements();
 
+    public void check(Coordinate coordinate, ListCoord coordinates){
+        Board board = getCell().getBoard();
+
+        if (board.getCell(coordinate) != null)
+            if (board.getCell(coordinate).isEmpty() ||
+                    board.getCell(coordinate).getPiece().getColor() != getColor())
+                coordinates.add(coordinate);
+    }
+    public void moveTo(Coordinate c){
+        Board board = getCell().getBoard();
+        //Check whether cell exists
+        if(board.getCell(c) != null) {
+            getCell().setPiece(null);
+            Cell cell = board.getCell(c);
+            cell.setPiece(this);
+            this.cell = cell;
+        }
+    }
     @Override
     public String toString(){
         return colorize(type.toString(),type.color.getPieceColor(),cell.getColor().getAttribute());
@@ -86,6 +106,4 @@ public abstract class Piece {
             return String.valueOf(shape);
         }
     }
-
-
 }

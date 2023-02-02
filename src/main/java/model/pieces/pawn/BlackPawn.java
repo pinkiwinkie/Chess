@@ -1,49 +1,40 @@
 package model.pieces.pawn;
 
-import model.Board;
 import model.Cell;
 import model.Coordinate;
-import tools.Tools;
+import model.pieces.queen.BlackQueen;
+import tad.ListCoord;
 
 public class BlackPawn extends Pawn {
-    private Coordinate[] coordinates;
+    private ListCoord coordinates;
     public BlackPawn(Cell cell){
         super(Type.BLACK_PAWN,cell);
     }
 
     @Override
-    public Coordinate[] getNextMovements() {
-        Board board = getCell().getBoard();
-        coordinates = new Coordinate[0];
-        Coordinate position = getCell().getCoordinate(), c, c2;
+    public ListCoord getNextMovements() {
+        coordinates = new ListCoord();
+        Coordinate position = getCell().getCoordinate(), c;
 
         //UP
         c= position.down();
-        check(c);
-        if (position.getNumber() == 2)
-            c= position.down().down();
-        check(c);
+        checkPawnMove(c);
+        if (getCell().getCoordinate().getNumber()==2) {
+            c = position.down().down();
+            checkPawnMove(c);
+        }
 
-        c=position.down().left();
-        c2 = position.down().right();
+        c=position.diagonalDownLeft();
+        checkPawnKiller(c);
+        c = position.diagonalDownRight();
+        checkPawnKiller(c);
 
-        check2(c);
-        check2(c2);
         return coordinates;
     }
-
-    public void check(Coordinate c){
-        Board board = getCell().getBoard();
-        if (board.getCell(c) != null)
-            if (board.getCell(c).isEmpty() ||
-                    board.getCell(c).getPiece().getColor() != getColor())
-                coordinates = Tools.add(coordinates,c);
+    @Override
+    public void transform() {
+        new BlackQueen(getCell());
+        cell=null;
     }
 
-    public void check2(Coordinate c){
-        Board board = getCell().getBoard();
-        if (board.getCell(c) != null)
-            if (!board.getCell(c).isEmpty() && board.getCell(c).getPiece().getColor() != getColor())
-                coordinates = Tools.add(coordinates,c);
-    }
 }
