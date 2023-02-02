@@ -1,17 +1,19 @@
 package model;
 
-import model.pieces.bishop.BlackBishop;
-import model.pieces.king.BlackKing;
-import model.pieces.knight.BlackKnight;
-import model.pieces.knight.WhiteKnight;
-import model.pieces.pawn.BlackPawn;
-import model.pieces.pawn.WhitePawn;
-import model.pieces.rook.BlackRook;
+import model.pieces.bishop.*;
+import model.pieces.king.*;
+import model.pieces.knight.*;
+import model.pieces.pawn.*;
+import model.pieces.rook.*;
+import model.pieces.queen.*;
+import tad.ListCoord;
 
 public class Board {
     private Cell[][] cells;
+    private IDeletedPieceManager deletedPieceManager;
 
     public Board() {
+        deletedPieceManager = new DeletedPieceManager();
         cells = new Cell[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -29,36 +31,47 @@ public class Board {
     }
 
     public void placePieces(){
-        Piece piece;
-        piece = new WhiteKnight(getCell(new Coordinate('B',8)));
-        piece.putInYourPlace();
-        piece = new WhiteKnight(getCell(new Coordinate('G',8)));
-        piece.putInYourPlace();
-        piece = new BlackKnight(getCell(new Coordinate('B',1)));
-        piece.putInYourPlace();
-        piece = new BlackKnight(getCell(new Coordinate('G',1)));
-        piece.putInYourPlace();
-        piece = new BlackBishop(getCell(new Coordinate('C',1)));
-        piece.putInYourPlace();
-        piece = new BlackBishop(getCell(new Coordinate('F',1)));
-        piece.putInYourPlace();
-        piece = new BlackBishop(getCell(new Coordinate('C',8)));
-        piece.putInYourPlace();
-        piece = new BlackBishop(getCell(new Coordinate('F',4)));
-        piece.putInYourPlace();
-        piece = new WhitePawn(getCell(new Coordinate('F',7)));
-        piece.putInYourPlace();
-        piece = new WhitePawn(getCell(new Coordinate('D',6)));
-        piece.putInYourPlace();
-        piece = new BlackPawn(getCell(new Coordinate('E',6)));
-        piece.putInYourPlace();
-        piece = new BlackPawn(getCell(new Coordinate('G',2)));
-        piece.putInYourPlace();
-        piece = new BlackKing(getCell(new Coordinate('D',1)));
-        piece.putInYourPlace();
-        piece = new BlackRook(getCell(new Coordinate('A',1)));
-        piece.putInYourPlace();
+        Piece p;
+        p = new WhiteRook(getCell(new Coordinate('A',8)));
+        p.putInYourPlace();
+        p = new WhiteRook(getCell(new Coordinate('H',8)));
+        p.putInYourPlace();
+        p = new WhiteKnight(getCell(new Coordinate('B',8)));
+        p.putInYourPlace();
+        p = new WhiteKnight(getCell(new Coordinate('G',8)));
+        p.putInYourPlace();
+        p = new WhiteBishop(getCell(new Coordinate('C',8)));
+        p.putInYourPlace();
+        p = new WhiteBishop(getCell(new Coordinate('F',8)));
+        p.putInYourPlace();
+        p = new WhiteKing(getCell(new Coordinate('D',8)));
+        p.putInYourPlace();
+        p = new WhiteQueen(getCell(new Coordinate('E',8)));
+        p.putInYourPlace();
 
+        p = new BlackRook(getCell(new Coordinate('A',1)));
+        p.putInYourPlace();
+        p = new BlackRook(getCell(new Coordinate('H',1)));
+        p.putInYourPlace();
+        p = new BlackKnight(getCell(new Coordinate('B',1)));
+        p.putInYourPlace();
+        p = new BlackKnight(getCell(new Coordinate('G',1)));
+        p.putInYourPlace();
+        p = new BlackBishop(getCell(new Coordinate('C',1)));
+        p.putInYourPlace();
+        p = new BlackBishop(getCell(new Coordinate('F',1)));
+        p.putInYourPlace();
+        p = new BlackKing(getCell(new Coordinate('D',1)));
+        p.putInYourPlace();
+        p = new BlackQueen(getCell(new Coordinate('E',1)));
+        p.putInYourPlace();
+
+        for (int i = 0; i < 8; i++) {
+            p = new BlackPawn(getCell(new Coordinate((char)('A'+i),2)));
+            p.putInYourPlace();
+            p = new WhitePawn(getCell(new Coordinate((char)('A'+i),7)));
+            p.putInYourPlace();
+        }
     }
 
     public boolean contains(Coordinate coordinate){
@@ -67,14 +80,17 @@ public class Board {
                 coordinate.getNumber()>=1 &&
                 coordinate.getNumber()<=8;
     }
-    public void highlight(Coordinate [] coordinates){
-        for (Coordinate c: coordinates)
-            getCell(c).highlight();
+    public void highlight(ListCoord coordinates){
+//        for (Coordinate c: coordinates)
+//            getCell(c).highlight();
+        for (int i = 0; i < coordinates.size(); i++) {
+            getCell(coordinates.get(i)).highlight();
+        }
     }
 
     public void resetColor(){
-        for (Cell [] cells1: cells){
-            for (Cell cell: cells1)
+        for (Cell [] row: cells){
+            for (Cell cell: row)
                 cell.resetColor();
         }
     }
@@ -89,6 +105,7 @@ public class Board {
             output += " " + (i + 1) + "\n";
         }
         output += "   A  B  C  D  E  F  G  H";
+        output +="\n\n"+ deletedPieceManager.toString();
         return output;
     }
 }

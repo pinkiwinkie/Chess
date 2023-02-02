@@ -1,12 +1,12 @@
 package tad;
 
-import model.Coordinate;
+import model.Piece;
 
-public class ListCoord {
-    private Node head;
+public class ListPieces {
+    private ListPieces.Node head;
     private int size;
 
-    public ListCoord() {
+    public ListPieces() {
         this.head = null;
         this.size = 0;
     }
@@ -15,7 +15,7 @@ public class ListCoord {
         return size;
     }
 
-    public Node getHead() {
+    public ListPieces.Node getHead() {
         return head;
     }
 
@@ -23,8 +23,8 @@ public class ListCoord {
         return size == 0;
     }
 
-    public void add(Coordinate elem) {
-        Node node = new Node(elem);
+    public void add(Piece elem) {
+        ListPieces.Node node = new ListPieces.Node(elem);
         if (isEmpty()) {
             head = node;
         } else {
@@ -34,11 +34,11 @@ public class ListCoord {
         size++;
     }
 
-    public int search(Coordinate elem) {
+    public int search(Piece elem) {
         int result = -1;
         if (isEmpty())
             return result;
-        Node node = head;
+        ListPieces.Node node = head;
         for (int i = 0; i < size; i++) {
             if (node.getElem().equals(elem))
                 return i;
@@ -47,9 +47,9 @@ public class ListCoord {
         return result;
     }
 
-    public Coordinate[] toArray() {
-        Coordinate[] vector = new Coordinate[size];
-        Node node = head;
+    public Piece[] toArray() {
+        Piece[] vector = new Piece[size];
+        ListPieces.Node node = head;
         for (int i = 0; i < size; i++) {
             vector[i] = node.getElem();
             node = node.getNext();
@@ -57,17 +57,17 @@ public class ListCoord {
         return vector;
     }
 
-    public Coordinate remove(int index) {
-        Coordinate result = null;
+    public Piece remove(int index) {
+        Piece result = null;
         if (isEmpty() || index < 0 || index >= size)
             return result;
-        Node node;
+        ListPieces.Node node;
         if (index == 0) {
             result = head.getElem();
             head = head.getNext();
         } else {
-            Node aux1 = head;
-            Node aux2 = head.getNext();
+            ListPieces.Node aux1 = head;
+            ListPieces.Node aux2 = head.getNext();
             while (index > 1) {
                 aux1 = aux2;
                 aux2 = aux2.getNext();
@@ -80,11 +80,11 @@ public class ListCoord {
         return result;
     }
 
-    public Coordinate get(int index) {
-        Coordinate result = null;
+    public Piece get(int index) {
+        Piece result = null;
         if (isEmpty() || index < 0 || index >= size)
             return result;
-        Node node = head;
+        ListPieces.Node node = head;
         while (index > 0) {
             node = node.getNext();
             index--;
@@ -102,8 +102,8 @@ public class ListCoord {
     }
 
     //merge 2 lists.
-    public ListCoord addAll(ListCoord list) {
-        Node node = list.getHead();
+    public ListPieces addAll(ListPieces list) {
+        ListPieces.Node node = list.getHead();
         for (int i = 0; i < list.size(); i++) {
             add(node.getElem());
             node = node.getNext();
@@ -111,17 +111,28 @@ public class ListCoord {
         return this;
     }
 
+    public int count(Piece.Type type){
+        Node aux = head;
+        int count =0;
+        while (aux!=null){
+            if (aux.getElem().getType().equals(type))
+                count++;
+            aux = aux.getNext();
+        }
+        return count;
+    }
+
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof ListCoord))
+        if (!(obj instanceof ListPieces))
             return false;
-        ListCoord list = (ListCoord) obj;
+        ListPieces list = (ListPieces) obj;
 
         if (list.size() != this.size)
             return false;
 
-        Node aux1 = this.head;
-        Node aux2 = list.getHead();
+        ListPieces.Node aux1 = this.head;
+        ListPieces.Node aux2 = list.getHead();
 
         while (aux1 != null) {
             if (!aux1.equals(aux2))
@@ -137,8 +148,8 @@ public class ListCoord {
         return "{ size: " + size + ", Element: " + ((head == null) ? "}" : head.toString());
     }
 
-    public boolean contains(Coordinate elem) {
-        Node node = head;
+    public boolean contains(Piece elem) {
+        ListPieces.Node node = head;
         for (int i = 0; i < size; i++) {
             if (elem.equals(node.getElem()))
                 return true;
@@ -148,32 +159,32 @@ public class ListCoord {
     }
 
     private class Node {
-        private Coordinate elem;
-        private Node next;
+        private Piece elem;
+        private ListPieces.Node next;
 
-        public Node(Coordinate elem) {
+        public Node(Piece elem) {
             this.elem = elem;
             this.next = null;
         }
 
-        public Node(Coordinate elem, Node next) {
+        public Node(Piece elem, ListPieces.Node next) {
             this.elem = elem;
             this.next = next;
         }
 
-        public Node getNext() {
+        public ListPieces.Node getNext() {
             return next;
         }
 
-        public Coordinate getElem() {
+        public Piece getElem() {
             return elem;
         }
 
-        public void setElem(Coordinate elem) {
+        public void setElem(Piece elem) {
             this.elem = elem;
         }
 
-        public void setNext(Node next) {
+        public void setNext(ListPieces.Node next) {
             this.next = next;
         }
 
@@ -184,12 +195,11 @@ public class ListCoord {
 
         @Override
         public boolean equals(Object obj) {
-            if (!(obj instanceof Node))
+            if (!(obj instanceof ListPieces.Node))
                 return false;
-            Node node = (Node) obj;
+            Node node = (ListPieces.Node) obj;
             return (node.getElem().equals(elem));
         }
 
     }
 }
-

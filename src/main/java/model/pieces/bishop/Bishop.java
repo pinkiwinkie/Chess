@@ -11,10 +11,10 @@ public abstract class Bishop extends Piece {
 
     @Override
     public ListCoord getNextMovements() {
-        return Bishop.getNextMovementAsBishop(this);
+        return Bishop.getNextMovementsAsBishop(this);
     }
 
-    public static ListCoord getNextMovementAsBishop(Piece p) {
+    public static ListCoord getNextMovementsAsBishop(Piece p) {
         ListCoord coordinates = new ListCoord();
         Cell cell = p.getCell();
         Board board = cell.getBoard();

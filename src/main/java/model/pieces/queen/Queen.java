@@ -1,11 +1,11 @@
 package model.pieces.queen;
 
-import model.Cell;
-import model.Piece;
+import model.*;
 import model.pieces.rook.Rook;
+import model.pieces.bishop.Bishop;
 import tad.ListCoord;
 
-public abstract class Queen extends Piece {
+public class Queen extends Piece {
     public Queen(Type type, Cell cell){
         super(type,cell);
     }

@@ -17,6 +17,10 @@ public abstract class Piece {
         return type.color;
     }
 
+    public Type getType() {
+        return type;
+    }
+
     public Cell getCell() {
         return cell;
     }
@@ -27,7 +31,7 @@ public abstract class Piece {
 
     public abstract ListCoord getNextMovements();
 
-    public void check(Coordinate coordinate, ListCoord coordinates){
+    protected void check(Coordinate coordinate, ListCoord coordinates){
         Board board = getCell().getBoard();
 
         if (board.getCell(coordinate) != null)
