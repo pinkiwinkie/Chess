@@ -10,7 +10,6 @@ public class Main {
 //        Coordinate c1 = new Coordinate('c', 1);
 //        Piece whiteKnight = new Piece(Piece.Type.WHITE_KNIGHT, new Cell(new Board(), c1));
 //        System.out.println(whiteKnight);
-//        Piece blackKnight = new Piece(Piece.Type.BLACK_KNIGHT, new Cell(new Board(), c1));
 //        System.out.println(blackKnight);
         board.placePieces();
         System.out.println(board);
