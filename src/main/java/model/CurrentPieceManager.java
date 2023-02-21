@@ -2,12 +2,15 @@ package model;
 
 import java.util.LinkedList;
 import java.util.List;
+
 import static com.diogonunes.jcolor.Ansi.colorize;
 
-public class DeletedPieceManager implements IDeletedPieceManager{
+public class CurrentPieceManager implements IDeletedPieceManager{
     private List<Piece> pieces;
-    public DeletedPieceManager(){
+    private Board board;
+    public CurrentPieceManager(Board board){
         pieces = new LinkedList<>();
+        this.board = board;
     }
 
     @Override
@@ -17,9 +20,10 @@ public class DeletedPieceManager implements IDeletedPieceManager{
 
     @Override
     public int count(Piece.Type type) {
+
         int count =0;
-        for (Piece piece: pieces)
-            if (piece.getType().equals(type))
+        for (Cell cell : board.getCellMap().values())
+            if (cell.getPiece().getType().equals(type))
                 count++;
         return count;
     }
@@ -42,3 +46,4 @@ public class DeletedPieceManager implements IDeletedPieceManager{
         return output;
     }
 }
+

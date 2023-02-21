@@ -4,22 +4,23 @@ import model.Board;
 import model.Cell;
 import model.Coordinate;
 import model.Piece;
-import tad.ListCoord;
-import tools.Tools;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class Rook extends Piece {
 
-    private ListCoord coordinates;
+    private Set<Coordinate> coordinates;
     public Rook(Type type, Cell cell){
         super(type,cell);
     }
 
     @Override
-    public ListCoord getNextMovements(){
+    public Set<Coordinate> getNextMovements(){
         return Rook.getNextMovementsAsRook(this);
     }
-    public static ListCoord getNextMovementsAsRook(Piece p) {
-        ListCoord coordinates = new ListCoord();
+    public static Set<Coordinate> getNextMovementsAsRook(Piece p) {
+        Set<Coordinate> coordinates = new HashSet<>();
         Cell cell = p.getCell();
         Board board = cell.getBoard();
         Piece.Color color = p.getColor();

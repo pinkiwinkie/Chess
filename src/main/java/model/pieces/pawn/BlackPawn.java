@@ -3,17 +3,18 @@ package model.pieces.pawn;
 import model.Cell;
 import model.Coordinate;
 import model.pieces.queen.BlackQueen;
-import tad.ListCoord;
+import java.util.HashSet;
+import java.util.Set;
 
 public class BlackPawn extends Pawn {
-    private ListCoord coordinates;
+    private Set<Coordinate> coordinates;
     public BlackPawn(Cell cell){
         super(Type.BLACK_PAWN,cell);
     }
 
     @Override
-    public ListCoord getNextMovements() {
-        coordinates = new ListCoord();
+    public Set<Coordinate> getNextMovements() {
+        coordinates = new HashSet<>();
         Coordinate position = getCell().getCoordinate(), c;
 
         //UP

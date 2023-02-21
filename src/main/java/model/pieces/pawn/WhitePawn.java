@@ -1,22 +1,22 @@
 package model.pieces.pawn;
 
-import model.Board;
 import model.Cell;
 import model.Coordinate;
 import model.pieces.queen.WhiteQueen;
-import tad.ListCoord;
-import tools.Tools;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class WhitePawn extends Pawn {
-    private ListCoord coordinates;
+    private Set<Coordinate> coordinates;
 
     public WhitePawn(Cell cell) {
         super(Type.WHITE_PAWN, cell);
     }
 
     @Override
-    public ListCoord getNextMovements() {
-        coordinates = new ListCoord();
+    public Set<Coordinate> getNextMovements() {
+        coordinates = new HashSet<>();
         Coordinate position = getCell().getCoordinate(), c;
 
         //UP

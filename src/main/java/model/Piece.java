@@ -1,11 +1,11 @@
 package model;
 
 import com.diogonunes.jcolor.Attribute;
-import tad.ListCoord;
+import java.util.Set;
 import static com.diogonunes.jcolor.Ansi.colorize;
 
 public abstract class Piece {
-    protected ListCoord coordinates;
+    protected Set<Coordinate> coordinates;
     private Type type;
     protected Cell cell;
     public Piece(Type type, Cell cell){
@@ -29,9 +29,9 @@ public abstract class Piece {
         cell.setPiece(this);
     }
 
-    public abstract ListCoord getNextMovements();
+    public abstract Set<Coordinate> getNextMovements();
 
-    protected void check(Coordinate coordinate, ListCoord coordinates){
+    protected void check(Coordinate coordinate, Set<Coordinate> coordinates){
         Board board = getCell().getBoard();
 
         if (board.getCell(coordinate) != null)

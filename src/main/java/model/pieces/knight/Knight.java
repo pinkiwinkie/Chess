@@ -1,19 +1,19 @@
 package model.pieces.knight;
 
 import model.*;
-import tad.ListCoord;
-import tools.Tools;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class Knight extends Piece {
 
-    private ListCoord coordinates;
+    private Set<Coordinate> coordinates;
     public Knight(Type type, Cell cell){
         super(type,cell);
     }
 
     @Override
-    public ListCoord getNextMovements() {
-        coordinates = new ListCoord();
+    public Set<Coordinate> getNextMovements() {
+        coordinates = new HashSet<>();
         Coordinate position = getCell().getCoordinate(), c;
 
         //UP

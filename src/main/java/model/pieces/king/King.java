@@ -1,11 +1,10 @@
 package model.pieces.king;
 
-import model.Board;
 import model.Cell;
 import model.Coordinate;
 import model.Piece;
-import tad.ListCoord;
-import tools.Tools;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class King extends Piece {
     public King(Type type, Cell cell) {
@@ -13,8 +12,8 @@ public abstract class King extends Piece {
     }
 
     @Override
-    public ListCoord getNextMovements() {
-        ListCoord coordinates = new ListCoord();
+    public Set<Coordinate> getNextMovements() {
+        Set<Coordinate> coordinates = new HashSet<>();
         Coordinate position = getCell().getCoordinate(), c;
 
         //UP

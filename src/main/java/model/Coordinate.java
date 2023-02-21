@@ -63,4 +63,9 @@ public class Coordinate {
         Coordinate c = (Coordinate) o;
         return (c.getLetter() == this.letter) && (c.getNumber() == this.number);
     }
+
+    @Override
+    public int hashCode() {
+        return number;
+    }
 }

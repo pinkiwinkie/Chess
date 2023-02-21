@@ -6,32 +6,28 @@ import model.pieces.knight.*;
 import model.pieces.pawn.*;
 import model.pieces.rook.*;
 import model.pieces.queen.*;
-import tad.ListCoord;
-
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class Board {
     private Map<Coordinate, Cell> cellMap;
     private IDeletedPieceManager deletedPieceManager;
+    private IDeletedPieceManager currentPieceManager;
 
     public Board() {
         deletedPieceManager = new DeletedPieceManager();
         cellMap = new HashMap<>();
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                cellMap.put(new Coordinate((char) ('A' + j), i + 1), new Cell(this, new Coordinate((char) ('A' + j), i + 1)));
+                cellMap.put(new Coordinate((char) ('A' + i), j + 1), new Cell(this, new Coordinate((char) ('A' + i), j + 1)));
             }
         }
+//        currentPieceManager = new CurrentPieceManager(this);
     }
-
-//    public Cell getCell(Coordinate coordinate) {
-//        if (coordinate.getNumber() < 1 || coordinate.getNumber() > 8)
-//            return null;
-//        if (coordinate.getLetter() < 'A' || coordinate.getLetter() > 'H')
-//            return null;
-//        return cells[coordinate.getNumber() - 1][coordinate.getLetter() - 'A'];
-//    }
+    public Cell getCell(Coordinate coordinate) {
+       return cellMap.get(coordinate);
+    }
 
     public void placePieces() {
         Piece p;
@@ -84,19 +80,19 @@ public class Board {
                 coordinate.getNumber() <= 8;
     }
 
-    public void highlight(ListCoord coordinates) {
-//        for (Coordinate c: coordinates)
-//            getCell(c).highlight();
-        for (int i = 0; i < coordinates.size(); i++) {
-            getCell(coordinates.get(i)).highlight();
-        }
+    public void highlight(Set<Coordinate> coordinates) {
+        for (Coordinate c: coordinates)
+            getCell(c).highlight();
     }
 
     public void resetColor() {
-        for (Cell[] row : cells) {
-            for (Cell cell : row)
-                cell.resetColor();
+        for (Cell cell : cellMap.values()) {
+            cell.resetColor();
         }
+    }
+
+    public Map<Coordinate, Cell> getCellMap() {
+        return cellMap;
     }
 
     @Override
@@ -105,12 +101,13 @@ public class Board {
         for (int i = 0; i < 8; i++) {
             output += (i + 1) + " ";
             for (int j = 0; j < 8; j++) {
-                output += cells[i][j];
+                output += cellMap.get(new Coordinate((char) ('A'+j),i+1));
             }
             output += " " + (i + 1) + "\n";
         }
         output += "   A  B  C  D  E  F  G  H";
-        output += "\n\n" + deletedPieceManager.toString();
+        output += "\n\nDELETE STORAGE\n" + deletedPieceManager.toString();
+//        output += "\n\nCURRENT STORAGE\n" + currentPieceManager.toString();
         return output;
     }
 }
