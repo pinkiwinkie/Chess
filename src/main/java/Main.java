@@ -1,21 +1,13 @@
 import model.Board;
+import model.Coordinate;
+
 public class Main {
     public static void main(String[] args) {
         Board board = new Board();
-//        System.out.println(board);
-//        Coordinate c1 = new Coordinate('c', 1);
-//        Piece whiteKnight = new Piece(Piece.Type.WHITE_KNIGHT, new Cell(new Board(), c1));
-//        System.out.println(whiteKnight);
-//        System.out.println(blackKnight);
         board.placePieces();
+        board.highlight(board.getCell(new Coordinate('D',6)).getPiece().getNextMovements());
         System.out.println(board);
 
-//        Coordinate[] coordinates = board.getCell(new Coordinate('F',4)).getPiece().getNextMovements();
-//        board.highlight(coordinates);
-//        System.out.println(board);
-//        coordinates = board.getCell(new Coordinate('E',8)).getPiece().getNextMovements();
-//        coordinates = board.getCell(new Coordinate('G',2)).getPiece().getNextMovements();
-//        coordinates = board.getCell(new Coordinate('D',1)).getPiece().getNextMovements();
-//        coordinates = board.getCell(new Coordinate('A',1)).getPiece().getNextMovements();
+
     }
 }
