@@ -6,6 +6,7 @@ import model.pieces.knight.*;
 import model.pieces.pawn.*;
 import model.pieces.rook.*;
 import model.pieces.queen.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -15,6 +16,9 @@ public class Board {
     private IDeletedPieceManager deletedPieceManager;
     private IDeletedPieceManager currentPieceManager;
 
+    /**
+     *
+     */
     public Board() {
         deletedPieceManager = new DeletedPieceManager();
         cellMap = new HashMap<>();
@@ -25,10 +29,26 @@ public class Board {
         }
 //        currentPieceManager = new CurrentPieceManager(this);
     }
+
+    /**
+     * @param coordinate
+     * @return
+     */
     public Cell getCell(Coordinate coordinate) {
-       return cellMap.get(coordinate);
+        return cellMap.get(coordinate);
     }
 
+    public IDeletedPieceManager getDeletedPieceManager() {
+        return deletedPieceManager;
+    }
+
+    public IDeletedPieceManager getCurrentPieceManager() {
+        return currentPieceManager;
+    }
+
+    /**
+     *
+     */
     public void placePieces() {
         Piece p;
         p = new WhiteRook(getCell(new Coordinate('A', 8)));
@@ -73,6 +93,10 @@ public class Board {
 //        }
     }
 
+    /**
+     * @param coordinate
+     * @return
+     */
     public boolean contains(Coordinate coordinate) {
         return coordinate.getLetter() >= 'A' &&
                 coordinate.getLetter() <= 'H' &&
@@ -81,10 +105,13 @@ public class Board {
     }
 
     public void highlight(Set<Coordinate> coordinates) {
-        for (Coordinate c: coordinates)
+        for (Coordinate c : coordinates)
             getCell(c).highlight();
     }
 
+    /**
+     * @see Cell
+     */
     public void resetColor() {
         for (Cell cell : cellMap.values()) {
             cell.resetColor();
@@ -101,7 +128,7 @@ public class Board {
         for (int i = 0; i < 8; i++) {
             output += (i + 1) + " ";
             for (int j = 0; j < 8; j++) {
-                output += cellMap.get(new Coordinate((char) ('A'+j),i+1));
+                output += cellMap.get(new Coordinate((char) ('A' + j), i + 1));
             }
             output += " " + (i + 1) + "\n";
         }

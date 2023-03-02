@@ -6,8 +6,8 @@ import model.Coordinate;
 import model.Piece;
 
 public abstract class Pawn extends Piece {
-    public Pawn(Type type, Cell cell){
-        super(type,cell);
+    public Pawn(Type type, Cell cell) {
+        super(type, cell);
     }
 
     public abstract void transform();

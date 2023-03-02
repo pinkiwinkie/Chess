@@ -51,13 +51,13 @@ public class Coordinate {
 
     @Override
     public String toString() {
-        return "("+ letter + "," + number + " )";
+        return "(" + letter + "," + number + " )";
     }
 
 
     //we are override equals to compare objects. no memory direction.
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (!(o instanceof Coordinate))
             return false;
         Coordinate c = (Coordinate) o;

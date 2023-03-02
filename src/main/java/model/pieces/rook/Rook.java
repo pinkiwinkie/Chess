@@ -11,14 +11,16 @@ import java.util.Set;
 public abstract class Rook extends Piece {
 
     private Set<Coordinate> coordinates;
-    public Rook(Type type, Cell cell){
-        super(type,cell);
+
+    public Rook(Type type, Cell cell) {
+        super(type, cell);
     }
 
     @Override
-    public Set<Coordinate> getNextMovements(){
+    public Set<Coordinate> getNextMovements() {
         return Rook.getNextMovementsAsRook(this);
     }
+
     public static Set<Coordinate> getNextMovementsAsRook(Piece p) {
         Set<Coordinate> coordinates = new HashSet<>();
         Cell cell = p.getCell();
@@ -29,39 +31,39 @@ public abstract class Rook extends Piece {
         Coordinate c;
 
         //UP
-        c=original.up();
-        while(board.getCell(c)!= null && board.getCell(c).isEmpty()) {
+        c = original.up();
+        while (board.getCell(c) != null && board.getCell(c).isEmpty()) {
             coordinates.add(c);
             c = c.up();
         }
-        if(board.getCell(c)!=null && board.getCell(c).getPiece().getColor()!=color)
+        if (board.getCell(c) != null && board.getCell(c).getPiece().getColor() != color)
             coordinates.add(c);
 
         //DOWN
-        c=original.down();
-        while(board.getCell(c)!= null && board.getCell(c).isEmpty()) {
+        c = original.down();
+        while (board.getCell(c) != null && board.getCell(c).isEmpty()) {
             coordinates.add(c);
             c = c.down();
         }
-        if(board.getCell(c)!=null && board.getCell(c).getPiece().getColor()!=color)
+        if (board.getCell(c) != null && board.getCell(c).getPiece().getColor() != color)
             coordinates.add(c);
 
         //LEFT
-        c=original.left();
-        while(board.getCell(c)!= null && board.getCell(c).isEmpty()) {
+        c = original.left();
+        while (board.getCell(c) != null && board.getCell(c).isEmpty()) {
             coordinates.add(c);
             c = c.left();
         }
-        if(board.getCell(c)!=null && board.getCell(c).getPiece().getColor()!=color)
+        if (board.getCell(c) != null && board.getCell(c).getPiece().getColor() != color)
             coordinates.add(c);
 
         //RIGHT
-        c=original.right();
-        while(board.getCell(c)!= null && board.getCell(c).isEmpty()) {
+        c = original.right();
+        while (board.getCell(c) != null && board.getCell(c).isEmpty()) {
             coordinates.add(c);
             c = c.right();
         }
-        if(board.getCell(c)!=null && board.getCell(c).getPiece().getColor()!=color)
+        if (board.getCell(c) != null && board.getCell(c).getPiece().getColor() != color)
             coordinates.add(c);
 
         return coordinates;

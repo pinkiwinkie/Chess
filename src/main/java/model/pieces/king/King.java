@@ -3,6 +3,7 @@ package model.pieces.king;
 import model.Cell;
 import model.Coordinate;
 import model.Piece;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +22,7 @@ public abstract class King extends Piece {
         check(c, coordinates);
 
         //UP-LEFT
-        c= position.diagonalUpLeft();
+        c = position.diagonalUpLeft();
         check(c, coordinates);
 
         //UP-RIGHT

@@ -37,6 +37,6 @@ public class WhitePawn extends Pawn {
     @Override
     public void transform() {
         new WhiteQueen(getCell());
-        cell=null;
+        cell = null;
     }
 }

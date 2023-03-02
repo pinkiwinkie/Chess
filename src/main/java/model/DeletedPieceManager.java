@@ -2,11 +2,13 @@ package model;
 
 import java.util.LinkedList;
 import java.util.List;
+
 import static com.diogonunes.jcolor.Ansi.colorize;
 
-public class DeletedPieceManager implements IDeletedPieceManager{
+public class DeletedPieceManager implements IDeletedPieceManager {
     private List<Piece> pieces;
-    public DeletedPieceManager(){
+
+    public DeletedPieceManager() {
         pieces = new LinkedList<>();
     }
 
@@ -17,8 +19,8 @@ public class DeletedPieceManager implements IDeletedPieceManager{
 
     @Override
     public int count(Piece.Type type) {
-        int count =0;
-        for (Piece piece: pieces)
+        int count = 0;
+        for (Piece piece : pieces)
             if (piece.getType().equals(type))
                 count++;
         return count;
@@ -32,12 +34,12 @@ public class DeletedPieceManager implements IDeletedPieceManager{
     @Override
     public String toString() {
         String output = "";
-        for (Piece.Type type: Piece.Type.values()){
-            output += colorize(" " + type.getShape()+ " " ,type.getColor().getPieceColor(), Cell.Color.WHITE_CELL.getAttribute());
+        for (Piece.Type type : Piece.Type.values()) {
+            output += colorize(" " + type.getShape() + " ", type.getColor().getPieceColor(), Cell.Color.WHITE_CELL.getAttribute());
         }
         output += "\n";
-        for (Piece.Type type: Piece.Type.values()){
-            output += colorize(" " + count(type)+ " " ,type.getColor().getPieceColor(), Cell.Color.BLACK_CELL.getAttribute());
+        for (Piece.Type type : Piece.Type.values()) {
+            output += colorize(" " + count(type) + " ", type.getColor().getPieceColor(), Cell.Color.BLACK_CELL.getAttribute());
         }
         return output;
     }
