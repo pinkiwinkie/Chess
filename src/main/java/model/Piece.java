@@ -43,15 +43,18 @@ public abstract class Piece {
                 coordinates.add(coordinate);
     }
 
-    public void moveTo(Coordinate c) {
-        Board board = getCell().getBoard();
-        //Check whether cell exists
-        if (board.getCell(c) != null) {
-            getCell().setPiece(null);
-            Cell cell = board.getCell(c);
-            cell.setPiece(this);
-            this.cell = cell;
+    public boolean moveTo(Coordinate coordinate) {
+        if (!getNextMovements().contains(coordinate))
+            return false;
+        if (!cell.getBoard().getCell(coordinate).isEmpty()){
+            Piece p = cell.getBoard().getCell(coordinate).getPiece();
+            p.cell = null;
+            cell.getBoard().getDeletedPieceManager().addPiece(p);
         }
+        cell.setPiece(null);
+        cell = cell.getBoard().getCell(coordinate);
+        putInYourPlace();
+        return true;
     }
 
     @Override

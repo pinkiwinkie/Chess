@@ -13,11 +13,14 @@ public abstract class Pawn extends Piece {
     public abstract void transform();
 
     @Override
-    public void moveTo(Coordinate c) {
-        super.moveTo(c);
-        if (getCell().getCoordinate().getNumber() == 8 ||
-                getCell().getCoordinate().getNumber() == 1)
-            transform();
+    public boolean moveTo(Coordinate c) {
+        boolean move = super.moveTo(c);
+        if (move) {
+            if (getCell().getCoordinate().getNumber() == 8 ||
+                    getCell().getCoordinate().getNumber() == 1)
+                transform();
+        }
+        return move;
     }
 
     protected void checkPawnKiller(Coordinate c) {

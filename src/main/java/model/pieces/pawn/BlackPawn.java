@@ -2,6 +2,7 @@ package model.pieces.pawn;
 
 import model.Cell;
 import model.Coordinate;
+import model.Piece;
 import model.pieces.queen.BlackQueen;
 
 import java.util.HashSet;
@@ -37,7 +38,9 @@ public class BlackPawn extends Pawn {
 
     @Override
     public void transform() {
+        Piece p = getCell().getPiece();
         new BlackQueen(getCell());
+        getCell().getBoard().getDeletedPieceManager().addPiece(p);
         cell = null;
     }
 

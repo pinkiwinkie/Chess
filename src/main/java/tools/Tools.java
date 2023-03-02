@@ -1,5 +1,7 @@
 package tools;
 
+import model.Coordinate;
+
 import java.util.Scanner;
 
 public class Tools {
@@ -28,6 +30,10 @@ public class Tools {
         return sc.next().toUpperCase();
     }
 
+    public static Coordinate getCoordinate(String message){
+        System.out.println(message);
+        return new Coordinate(getString("Write the letter").charAt(0), getInt("Write the number"));
+    }
 
 //    public static Coordinate[] add(Coordinate[] coordinates,Coordinate coordinate){
 //        Coordinate [] aux = new Coordinate[coordinates.length+1];
