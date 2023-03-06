@@ -4,7 +4,7 @@ import model.Coordinate;
 
 import java.util.Scanner;
 
-public class Tools {
+public class Input {
 
     /**
      * @param message indicates what the user has to enter.
@@ -30,6 +30,10 @@ public class Tools {
         return sc.next().toUpperCase();
     }
 
+    /**
+     * @param message
+     * @return
+     */
     public static Coordinate getCoordinate(String message){
         System.out.println(message);
         return new Coordinate(getString("Write the letter").charAt(0), getInt("Write the number"));

@@ -1,13 +1,13 @@
 package model;
 
 import com.diogonunes.jcolor.Attribute;
-
+import java.util.HashSet;
 import java.util.Set;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 
 public abstract class Piece {
-    protected Set<Coordinate> coordinates;
+    protected Set<Coordinate> coordinates = new HashSet<>();
     private Type type;
     protected Cell cell;
 

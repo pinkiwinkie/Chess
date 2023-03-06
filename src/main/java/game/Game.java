@@ -4,25 +4,31 @@ import model.Board;
 import model.Cell;
 import model.Coordinate;
 import model.Piece;
-import tools.Tools;
+import tools.Input;
 import tools.View;
 
 import java.util.Optional;
 
 public class Game {
-    private Board board;
+    private final Board board;
     private Piece.Color shift;
-    private String player1, player2;
+    private final String player1, player2;
     private boolean playing;
 
+    /**
+     * game builder.
+     */
     public Game() {
         board = new Board();
         shift = Piece.Color.WHITE;
         playing = true;
-        player1 = Tools.getString("Introduce name of player 1: ");
-        player2 = Tools.getString("Introduce name of player 2: ");
+        player1 = Input.getString("Introduce name of player 1: ");
+        player2 = Input.getString("Introduce name of player 2: ");
     }
 
+    /**
+     * makes the game have a beginning and an end.
+     */
     public void start(){
         Piece king;
         while (playing){
@@ -61,7 +67,7 @@ public class Game {
     private Coordinate takeCoordinate(String message){
         Coordinate coordinate;
         do {
-            coordinate = Tools.getCoordinate(message);
+            coordinate = Input.getCoordinate(message);
             if (!board.contains(coordinate))
                 System.out.println("Not exists the coordinate.");
         } while (!board.contains(coordinate));
@@ -90,7 +96,7 @@ public class Game {
     }
 
     private void movePiece(Coordinate coordinate){
-        while (!board.getCell(coordinate).getPiece().moveTo(Tools.getCoordinate("Write coordinate to move the piece."))){
+        while (!board.getCell(coordinate).getPiece().moveTo(Input.getCoordinate("Write coordinate to move the piece."))){
             System.out.println("Do not move the piece");
         }
         board.resetColor();

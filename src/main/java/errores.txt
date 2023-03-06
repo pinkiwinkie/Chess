@@ -1,1 +1,3 @@
-NullPointerException -> Pawn.java:35
+NullPointerException -> Pawn.java:35.
+El tablero en vista de fichas negras sale null -> hashCode()?.
+No me deja mover el caballo -> Do not move the piece.

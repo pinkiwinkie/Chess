@@ -17,7 +17,7 @@ public class Board {
     private IDeletedPieceManager currentPieceManager;
 
     /**
-     *
+     * board builder.
      */
     public Board() {
         deletedPieceManager = new DeletedPieceManager();
@@ -32,23 +32,29 @@ public class Board {
     }
 
     /**
-     * @param coordinate
-     * @return
+     * @param coordinate from cell to get.
+     * @return cell of coordinate like Map.
      */
     public Cell getCell(Coordinate coordinate) {
         return cellMap.get(coordinate);
     }
 
+    /**
+     * @return the pieces you've killed.
+     */
     public IDeletedPieceManager getDeletedPieceManager() {
         return deletedPieceManager;
     }
 
+    /**
+     * @return the piece you've on the board.
+     */
     public IDeletedPieceManager getCurrentPieceManager() {
         return currentPieceManager;
     }
 
     /**
-     *
+     * put the pieces on the board.
      */
     public void placePieces() {
         Piece p;
@@ -95,8 +101,9 @@ public class Board {
     }
 
     /**
-     * @param coordinate
-     * @return
+     * @param coordinate that checks if it is on the board.
+     * @return true if exists the coordinate.
+     *          false if not exists the coordinate.
      */
     public boolean contains(Coordinate coordinate) {
         return coordinate.getLetter() >= 'A' &&
@@ -105,6 +112,9 @@ public class Board {
                 coordinate.getNumber() <= 8;
     }
 
+    /**
+     * @param coordinates you want to highlight.
+     */
     public void highlight(Set<Coordinate> coordinates) {
         for (Coordinate c : coordinates)
             getCell(c).highlight();
@@ -119,6 +129,9 @@ public class Board {
         }
     }
 
+    /**
+     * @return cellMap.
+     */
     public Map<Coordinate, Cell> getCellMap() {
         return cellMap;
     }
