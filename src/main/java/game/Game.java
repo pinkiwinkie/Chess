@@ -27,33 +27,39 @@ public class Game {
     }
 
     /**
-     * makes the game have a beginning and an end.
+     * makes the game have a begining and an end.
      */
+    //CAMBIAR EL IF DEL CONTADOR DEL REY PORQUE ASI NO VA A FINALIZAR PORQUE NO ESTA IMPLEMENTADO.
     public void start(){
         Piece king;
         while (playing){
             shift();
-            king = findOutKing(findOutKingEnemy());
-            if (king != null){
-                changeShift();
-                if (findOutCheck(king))
-                    System.out.println("The king is in danger.");
-                else {
-                    playing = false;
-                    if (board.getDeletedPieceManager().count(Piece.Type.BLACK_KING) == 1)
-                        System.out.println("The winner is " + player1);
-                    else
-                        System.out.println("The winner is " + player2);
-                }
-            }
+            changeShift();
+//            king = findOutKing(findOutKingEnemy());
+//            if (king != null){
+//                changeShift();
+//                if (findOutCheck(king))
+//                    System.out.println("The king is in danger.");
+//                else {
+//                    playing = false;
+//                    if (board.getDeletedPieceManager().count(Piece.Type.BLACK_KING) == 0)
+//                        System.out.println("The winner is " + player1);
+//                    else
+//                        System.out.println("The winner is " + player2);
+//                }
+//            }
         }
     }
+
+    /**
+     * indicates what to do each turn.
+     */
     private void shift(){
-        View.show(board,shift);
         if (shift == Piece.Color.WHITE)
             System.out.println("Shift of " + player1 + ".");
         else
             System.out.println("Shift of " + player2 + ".");
+        View.show(board,shift);
         Coordinate c = selectPiece();
         movePiece(c);
     }
@@ -64,10 +70,10 @@ public class Game {
         else
             shift = Piece.Color.WHITE;
     }
-    private Coordinate takeCoordinate(String message){
+    private Coordinate takeCoordinate(){
         Coordinate coordinate;
         do {
-            coordinate = Input.getCoordinate(message);
+            coordinate = Input.getCoordinate("Write the coordinate the piece to move.");
             if (!board.contains(coordinate))
                 System.out.println("Not exists the coordinate.");
         } while (!board.contains(coordinate));
@@ -78,7 +84,7 @@ public class Game {
         boolean isValid = false;
         Coordinate coordinate = null;
         while (!isValid){
-            coordinate = takeCoordinate("Write the coordinate that you want to move the piece.");
+            coordinate = takeCoordinate();
 //            System.out.println(coordinate);
             if (!board.getCell(coordinate).isEmpty()){
                 if (board.getCell(coordinate).getPiece().getColor() == shift){
@@ -100,6 +106,7 @@ public class Game {
             System.out.println("Do not move the piece");
         }
         board.resetColor();
+        View.show(board,shift);
     }
     private Piece findOutKing(Piece.Type king){
         Optional<Piece> rey = board.getCellMap().values().stream().filter(

@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class BlackPawn extends Pawn {
-    private Set<Coordinate> coordinates;
 
     public BlackPawn(Cell cell) {
         super(Type.BLACK_PAWN, cell);
@@ -17,7 +16,6 @@ public class BlackPawn extends Pawn {
 
     @Override
     public Set<Coordinate> getNextMovements() {
-        coordinates = new HashSet<>();
         Coordinate position = getCell().getCoordinate(), c;
 
         //UP

@@ -3,22 +3,18 @@ package model.pieces.pawn;
 import model.Cell;
 import model.Coordinate;
 import model.Piece;
-import model.pieces.queen.BlackQueen;
 import model.pieces.queen.WhiteQueen;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class WhitePawn extends Pawn {
-    private Set<Coordinate> coordinates;
-
     public WhitePawn(Cell cell) {
         super(Type.WHITE_PAWN, cell);
     }
 
     @Override
     public Set<Coordinate> getNextMovements() {
-        coordinates = new HashSet<>();
         Coordinate position = getCell().getCoordinate(), c;
 
         //UP

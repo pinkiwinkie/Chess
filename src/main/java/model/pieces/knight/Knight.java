@@ -7,15 +7,12 @@ import java.util.Set;
 
 public abstract class Knight extends Piece {
 
-    private Set<Coordinate> coordinates;
-
     public Knight(Type type, Cell cell) {
         super(type, cell);
     }
 
     @Override
     public Set<Coordinate> getNextMovements() {
-        coordinates = new HashSet<>();
         Coordinate position = getCell().getCoordinate(), c;
 
         //UP

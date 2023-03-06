@@ -31,8 +31,8 @@ public class Input {
     }
 
     /**
-     * @param message
-     * @return
+     * @param message indicates what the user has to enter.
+     * @return Coordinate.
      */
     public static Coordinate getCoordinate(String message){
         System.out.println(message);

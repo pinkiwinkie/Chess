@@ -14,7 +14,6 @@ public abstract class King extends Piece {
 
     @Override
     public Set<Coordinate> getNextMovements() {
-        Set<Coordinate> coordinates = new HashSet<>();
         Coordinate position = getCell().getCoordinate(), c;
 
         //UP

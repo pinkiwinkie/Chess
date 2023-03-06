@@ -16,6 +16,10 @@ public abstract class Piece {
         this.type = type;
     }
 
+    public Set<Coordinate> getCoordinates() {
+        return coordinates;
+    }
+
     public Color getColor() {
         return type.color;
     }

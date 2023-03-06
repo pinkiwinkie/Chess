@@ -36,8 +36,8 @@ public class View {
         String output = "   A  B  C  D  E  F  G  H\n";
         for (int i = 8; i > 0; i--) {
             output += i + " ";
-            for (int j = 8; j > 0; j--) {
-                output += board.getCell(new Coordinate((char) ('H' + j), i ));
+            for (int j = 0; j < 8; j++) {
+                output += board.getCell(new Coordinate((char) ('H' - j), i ));
             }
             output += " " + i + "\n";
         }

@@ -10,8 +10,6 @@ import java.util.Set;
 
 public abstract class Rook extends Piece {
 
-    private Set<Coordinate> coordinates;
-
     public Rook(Type type, Cell cell) {
         super(type, cell);
     }
@@ -22,7 +20,7 @@ public abstract class Rook extends Piece {
     }
 
     public static Set<Coordinate> getNextMovementsAsRook(Piece p) {
-        Set<Coordinate> coordinates = new HashSet<>();
+        Set<Coordinate> coordinates = p.getCoordinates();
         Cell cell = p.getCell();
         Board board = cell.getBoard();
         Piece.Color color = p.getColor();

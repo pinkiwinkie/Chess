@@ -1,3 +1,34 @@
-NullPointerException -> Pawn.java:35.
+NullPointerException -> Pawn.java:35. -> ARREGLADO
+    -> Solucion:
+            *faltaba una condicion de tablero no vacio porque estaba comprobando si puedo matar.
 El tablero en vista de fichas negras sale null -> hashCode()?.
-No me deja mover el caballo -> Do not move the piece.
+     *si pones 'H' + j -> hace h + 8, h + 7 y asi, porque j va de 8 a 1*
+    -> Solucion:
+            for (int i = 8; i > 0; i--) {
+                        output += i + " ";
+                        for (int j = 0; j < 8; j++) {
+                            output += board.getCell(new Coordinate((char) ('H' - j), i ));
+                        }
+                        output += " " + i + "\n";
+                    }
+
+No me deja mover el caballo -> Do not move the piece. -> ARREGLADO
+    -> error tonto.
+El currentManager no funciona -> NullPointerException.
+
+
+
+
+
+
+
+
+Falta JavaDoc:
+    Game
+    Menu
+    package pieces
+    Cell
+    Coordinate
+    Current, Deleted Piece Manager
+    Piece
+    View
