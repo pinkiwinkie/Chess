@@ -37,7 +37,7 @@ public class View {
         for (int i = 8; i > 0; i--) {
             output += i + " ";
             for (int j = 0; j < 8; j++) {
-                output += board.getCell(new Coordinate((char) ('H' - j), i ));
+                output += board.getCell(new Coordinate((char) ('A' + j), i ));
             }
             output += " " + i + "\n";
         }

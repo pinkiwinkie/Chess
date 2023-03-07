@@ -32,3 +32,10 @@ Falta JavaDoc:
     Current, Deleted Piece Manager
     Piece
     View
+
+
+
+----------------------------------------------
+errores examen:
+en poo los atributos estaticos son comunes para todos los objetos.
+en el equals diferenciar objetos -> lo de la instancia de la clase.

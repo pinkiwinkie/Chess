@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="el tablero en vista del negro sale null y no entiendo el por que">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="check mistakes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/errores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/errores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/bishop/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/bishop/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/king/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/king/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/knight/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/knight/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/BlackPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/BlackPawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/WhitePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/WhitePawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/rook/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/rook/Rook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tools/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/Input.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tools/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/View.java" afterDir="false" />
     </list>
@@ -55,15 +44,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/home/eruizm/IdeaProjects/Chess"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/eruizm/IdeaProjects/Chess&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/model/pieces/bishop" />
@@ -209,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677010661001</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="check mistakes">
+      <created>1678133820682</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678133820682</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -231,7 +227,8 @@
     <MESSAGE value="abstract Piece change" />
     <MESSAGE value="bishop finished" />
     <MESSAGE value="falta jugabilidad" />
-    <option name="LAST_COMMIT_MESSAGE" value="falta jugabilidad" />
+    <MESSAGE value="check mistakes" />
+    <option name="LAST_COMMIT_MESSAGE" value="check mistakes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

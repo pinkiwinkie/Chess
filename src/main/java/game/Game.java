@@ -73,7 +73,7 @@ public class Game {
     private Coordinate takeCoordinate(){
         Coordinate coordinate;
         do {
-            coordinate = Input.getCoordinate("Write the coordinate the piece to move.");
+            coordinate = Input.getCoordinate("Write the coordinate of the piece to move.");
             if (!board.contains(coordinate))
                 System.out.println("Not exists the coordinate.");
         } while (!board.contains(coordinate));
@@ -102,7 +102,7 @@ public class Game {
     }
 
     private void movePiece(Coordinate coordinate){
-        while (!board.getCell(coordinate).getPiece().moveTo(Input.getCoordinate("Write coordinate to move the piece."))){
+        while (!board.getCell(coordinate).getPiece().moveTo(Input.getCoordinate("Write the coordinate to move the piece."))){
             System.out.println("Do not move the piece");
         }
         board.resetColor();

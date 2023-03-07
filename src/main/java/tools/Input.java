@@ -36,7 +36,10 @@ public class Input {
      */
     public static Coordinate getCoordinate(String message){
         System.out.println(message);
-        return new Coordinate(getString("Write the letter").charAt(0), getInt("Write the number"));
+        char letter = getString("Write the letter").charAt(0);
+        int number = getInt("Write the number");
+        boolean exit = false;
+        return new Coordinate(, );
     }
 
 //    public static Coordinate[] add(Coordinate[] coordinates,Coordinate coordinate){
