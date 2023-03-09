@@ -1,5 +1,6 @@
 package game;
 
+import mistakesInput.Changes;
 import model.Board;
 import model.Cell;
 import model.Coordinate;
@@ -72,11 +73,25 @@ public class Game {
     }
     private Coordinate takeCoordinate(){
         Coordinate coordinate;
+        String falseCoordinate;
+        int number;
+        char letter;
+        boolean salir = false;
         do {
-            coordinate = Input.getCoordinate("Write the coordinate of the piece to move.");
+            falseCoordinate = Input.getString("Write the coordinate.");
+            if (falseCoordinate.length() != 2)
+                System.out.println("Solo 2 caracteres validos.");
+            else
+                salir = true;
+        }while(!salir);
+        do{
+            number = Changes.separateNumberCoordinate(falseCoordinate);
+            letter = Changes.separateLetterCoordinate(falseCoordinate);
+            coordinate = new Coordinate(letter, number);
             if (!board.contains(coordinate))
                 System.out.println("Not exists the coordinate.");
-        } while (!board.contains(coordinate));
+        }while(!board.contains(coordinate));
+
         return coordinate;
     }
 
@@ -102,7 +117,7 @@ public class Game {
     }
 
     private void movePiece(Coordinate coordinate){
-        while (!board.getCell(coordinate).getPiece().moveTo(Input.getCoordinate("Write the coordinate to move the piece."))){
+        while (!board.getCell(coordinate).getPiece().moveTo(takeCoordinate())){
             System.out.println("Do not move the piece");
         }
         board.resetColor();

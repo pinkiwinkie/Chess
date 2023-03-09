@@ -35,6 +35,37 @@ Falta JavaDoc:
 
 
 
+ private Coordinate takeCoordinate(){
+        Coordinate coordinate;
+        String falseCoordinate;
+        int number;
+        char letter;
+        do {
+            falseCoordinate = Input.getString("Write the coordinate.");
+            number = Changes.separateNumberCoordinate(falseCoordinate);
+            letter = Changes.separateLetterCoordinate(falseCoordinate);
+            coordinate = new Coordinate(letter, number);
+            if (!board.contains(coordinate))
+                System.out.println("Not exists the coordinate.");
+        } while (!board.contains(coordinate));
+        return coordinate;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ----------------------------------------------
 errores examen:
 en poo los atributos estaticos son comunes para todos los objetos.

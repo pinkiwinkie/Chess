@@ -30,17 +30,21 @@ public class Input {
         return sc.next().toUpperCase();
     }
 
-    /**
-     * @param message indicates what the user has to enter.
-     * @return Coordinate.
-     */
-    public static Coordinate getCoordinate(String message){
-        System.out.println(message);
-        char letter = getString("Write the letter").charAt(0);
-        int number = getInt("Write the number");
-        boolean exit = false;
-        return new Coordinate(, );
-    }
+//    /**
+//     * @param message indicates what the user has to enter.
+//     * @return Coordinate.
+//     */
+//    public static Coordinate getCoordinate(String message){
+//        System.out.println(message);
+//        char letter;
+//        int number;
+//        boolean exit = false;
+//        do {
+//            letter = getString("Write the letter").charAt(0);
+//            number = getInt("Write the number");
+//        }
+//        return new Coordinate(, );
+//    }
 
 //    public static Coordinate[] add(Coordinate[] coordinates,Coordinate coordinate){
 //        Coordinate [] aux = new Coordinate[coordinates.length+1];
