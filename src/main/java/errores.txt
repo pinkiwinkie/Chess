@@ -14,8 +14,18 @@ El tablero en vista de fichas negras sale null -> hashCode()?.
 
 No me deja mover el caballo -> Do not move the piece. -> ARREGLADO
     -> error tonto.
-El currentManager no funciona -> NullPointerException.
+El currentManager no funciona -> NullPointerException.(no esta inicilizado y falta la logica).
 
+en la torre te ilumina en rojo la torre XD (??) y tambien si la has movido por ejemplo de H1
+a G1 y desde aqui la quieres mover te sale en amarillo toda la fila de H mas la de G y conforme este mas dentro del
+tablero tambien sale los anteriores getnextmovements.
+ademas tambien en la torre negra me selecciona ficha posible a matar una pieza suya y ademas la mata.
+ -> ARREGLADO: era que inicializaba mal  Set<Coordinate> coordinates.
+
+NullPointerException Piece:56 this.cell is null
+    -> debido al error anterior si seleccionas la coordenada donde
+    esta la pieza al no estar en getNextMovements sale una excepcion
+    porque es como que no existe.
 
 
 
@@ -26,7 +36,6 @@ El currentManager no funciona -> NullPointerException.
 Falta JavaDoc:
     Game
     Menu
-    package pieces
     Cell
     Coordinate
     Current, Deleted Piece Manager

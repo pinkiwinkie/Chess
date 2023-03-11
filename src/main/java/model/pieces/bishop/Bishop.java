@@ -17,7 +17,7 @@ public abstract class Bishop extends Piece {
     }
 
     public static Set<Coordinate> getNextMovementsAsBishop(Piece p) {
-        Set<Coordinate> coordinates = p.getCoordinates();
+        Set<Coordinate> coordinates = new HashSet<>();
         Cell cell = p.getCell();
         Board board = cell.getBoard();
         Piece.Color color = p.getColor();

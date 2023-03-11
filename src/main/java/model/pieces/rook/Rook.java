@@ -20,7 +20,7 @@ public abstract class Rook extends Piece {
     }
 
     public static Set<Coordinate> getNextMovementsAsRook(Piece p) {
-        Set<Coordinate> coordinates = p.getCoordinates();
+        Set<Coordinate> coordinates = new HashSet<>();
         Cell cell = p.getCell();
         Board board = cell.getBoard();
         Piece.Color color = p.getColor();

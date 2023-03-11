@@ -20,8 +20,8 @@ public class Board {
      * board builder.
      */
     public Board() {
-        deletedPieceManager = new DeletedPieceManager();
         cellMap = new HashMap<>();
+        deletedPieceManager = new DeletedPieceManager();
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 cellMap.put(new Coordinate((char) ('A' + i), j + 1), new Cell(this, new Coordinate((char) ('A' + i), j + 1)));
@@ -147,8 +147,6 @@ public class Board {
             output += " " + (i + 1) + "\n";
         }
         output += "   A  B  C  D  E  F  G  H";
-        output += "\n\nDELETE STORAGE\n" + deletedPieceManager.toString();
-//        output += "\n\nCURRENT STORAGE\n" + currentPieceManager.toString();
         return output;
     }
 }

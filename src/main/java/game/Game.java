@@ -15,6 +15,7 @@ public class Game {
     private Piece.Color shift;
     private final String player1, player2;
     private boolean playing;
+    public static final Coordinate coordSave = new Coordinate('S',0);
 
     /**
      * game builder.
@@ -84,13 +85,16 @@ public class Game {
             else
                 salir = true;
         }while(!salir);
+        salir = false;
         do{
             number = Changes.separateNumberCoordinate(falseCoordinate);
             letter = Changes.separateLetterCoordinate(falseCoordinate);
             coordinate = new Coordinate(letter, number);
-            if (!board.contains(coordinate))
+            if (!board.contains(coordinate) && !coordinate.equals(coordSave))
                 System.out.println("Not exists the coordinate.");
-        }while(!board.contains(coordinate));
+            else
+                salir = true;
+        }while(!board.contains(coordinate) && !coordinate.equals(coordSave)|| !salir);
 
         return coordinate;
     }
@@ -101,7 +105,10 @@ public class Game {
         while (!isValid){
             coordinate = takeCoordinate();
 //            System.out.println(coordinate);
-            if (!board.getCell(coordinate).isEmpty()){
+            if (coordinate.equals(coordSave)) {
+                File.save(this);
+                System.out.println("The file has been saved correctly.");
+            }else if (!board.getCell(coordinate).isEmpty()){
                 if (board.getCell(coordinate).getPiece().getColor() == shift){
                     if (board.getCell(coordinate).getPiece().getNextMovements().size()>0)
                         isValid = true;

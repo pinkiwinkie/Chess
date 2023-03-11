@@ -33,18 +33,5 @@ public class CurrentPieceManager implements IDeletedPieceManager {
     public Piece removeLast() {
         return pieces.remove(0);
     }
-
-    @Override
-    public String toString() {
-        String output = "";
-        for (Piece.Type type : Piece.Type.values()) {
-            output += colorize(" " + type.getShape() + " ", type.getColor().getPieceColor(), Cell.Color.WHITE_CELL.getAttribute());
-        }
-        output += "\n";
-        for (Piece.Type type : Piece.Type.values()) {
-            output += colorize(" " + count(type) + " ", type.getColor().getPieceColor(), Cell.Color.BLACK_CELL.getAttribute());
-        }
-        return output;
-    }
 }
 

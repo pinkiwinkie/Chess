@@ -1,13 +1,26 @@
 package tools;
 
-import model.Board;
-import model.Piece;
-import model.IDeletedPieceManager;
-import model.Coordinate;
+import com.diogonunes.jcolor.Attribute;
+import model.*;
+
+import static com.diogonunes.jcolor.Ansi.colorize;
+
 public class View {
 
-    public static void showStorage(IDeletedPieceManager storage){
 
+    /**
+     * @param storage
+     */
+    public static void showStorage(IDeletedPieceManager storage){
+        String output = "DELETED PIECES\n";
+        for (Piece.Type type : Piece.Type.values()) {
+            output += colorize(" " + type.getShape() + " ", type.getColor().getPieceColor(), Cell.Color.WHITE_CELL.getAttribute());
+        }
+        output += "\n";
+        for (Piece.Type type : Piece.Type.values()) {
+            output += colorize(" " + storage.count(type) + " ", type.getColor().getPieceColor(), Cell.Color.BLACK_CELL.getAttribute());
+        }
+        System.out.println(output);
     }
 
     public static void show(Board board, Piece.Color color){
@@ -16,7 +29,7 @@ public class View {
         else
             showViewWhite(board);
         showStorage(board.getDeletedPieceManager());
-        showStorage(board.getCurrentPieceManager());
+//        showStorage(board.getCurrentPieceManager());
     }
 
     private static void showViewWhite(Board board){
@@ -37,7 +50,7 @@ public class View {
         for (int i = 8; i > 0; i--) {
             output += i + " ";
             for (int j = 0; j < 8; j++) {
-                output += board.getCell(new Coordinate((char) ('A' + j), i ));
+                output += board.getCell(new Coordinate((char) ('A' + j), i));
             }
             output += " " + i + "\n";
         }
