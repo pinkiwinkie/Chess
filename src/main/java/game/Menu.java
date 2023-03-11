@@ -3,6 +3,9 @@ package game;
 import tools.Input;
 
 public class Menu {
+    /**
+     * menu of game
+     */
     public static void menu(){
         boolean exit = false;
         Game game;

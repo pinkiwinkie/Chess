@@ -1,4 +1,6 @@
-package model;
+package storagePieces;
+
+import model.Piece;
 
 public interface IDeletedPieceManager {
     void addPiece(Piece piece);

@@ -3,9 +3,13 @@ package model;
 import model.pieces.bishop.*;
 import model.pieces.king.*;
 import model.pieces.knight.*;
-import model.pieces.pawn.*;
 import model.pieces.rook.*;
 import model.pieces.queen.*;
+import model.pieces.pawn.*;
+import storagePieces.CurrentPieceManager;
+import storagePieces.DeletedPieceManager;
+import storagePieces.ICurrentPieceManager;
+import storagePieces.IDeletedPieceManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +18,7 @@ import java.util.Set;
 public class Board {
     private Map<Coordinate, Cell> cellMap;
     private IDeletedPieceManager deletedPieceManager;
-    private IDeletedPieceManager currentPieceManager;
+    private ICurrentPieceManager currentPieceManager;
 
     /**
      * board builder.
@@ -28,7 +32,7 @@ public class Board {
             }
         }
         placePieces();
-//        currentPieceManager = new CurrentPieceManager(this);
+        currentPieceManager = new CurrentPieceManager(this);
     }
 
     /**
@@ -49,7 +53,7 @@ public class Board {
     /**
      * @return the piece you've on the board.
      */
-    public IDeletedPieceManager getCurrentPieceManager() {
+    public ICurrentPieceManager getCurrentPieceManager() {
         return currentPieceManager;
     }
 
@@ -91,13 +95,12 @@ public class Board {
         p.putInYourPlace();
         p = new BlackQueen(getCell(new Coordinate('E', 1)));
         p.putInYourPlace();
-
-//        for (int i = 0; i < 8; i++) {
-//            p = new BlackPawn(getCell(new Coordinate((char) ('A' + i), 2)));
-//            p.putInYourPlace();
-//            p = new WhitePawn(getCell(new Coordinate((char) ('A' + i), 7)));
-//            p.putInYourPlace();
-//        }
+        for (int i = 0; i < 8; i++) {
+            p = new BlackPawn(getCell(new Coordinate((char) ('A' + i), 2)));
+            p.putInYourPlace();
+            p = new WhitePawn(getCell(new Coordinate((char) ('A' + i), 7)));
+            p.putInYourPlace();
+        }
     }
 
     /**

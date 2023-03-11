@@ -1,7 +1,8 @@
 package tools;
 
-import com.diogonunes.jcolor.Attribute;
 import model.*;
+import storagePieces.ICurrentPieceManager;
+import storagePieces.IDeletedPieceManager;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 
@@ -11,7 +12,7 @@ public class View {
     /**
      * @param storage
      */
-    public static void showStorage(IDeletedPieceManager storage){
+    public static void showStorageDeleted(IDeletedPieceManager storage){
         String output = "DELETED PIECES\n";
         for (Piece.Type type : Piece.Type.values()) {
             output += colorize(" " + type.getShape() + " ", type.getColor().getPieceColor(), Cell.Color.WHITE_CELL.getAttribute());
@@ -23,13 +24,25 @@ public class View {
         System.out.println(output);
     }
 
+    public static void showStorageCurrent(ICurrentPieceManager storage){
+        String output = "CURRENT PIECES\n";
+        for (Piece.Type type : Piece.Type.values()) {
+            output += colorize(" " + type.getShape() + " ", type.getColor().getPieceColor(), Cell.Color.WHITE_CELL.getAttribute());
+        }
+        output += "\n";
+        for (Piece.Color color : Piece.Color.values()) {
+            output += colorize(" " + storage.count(color) + " ", color.getPieceColor(), Cell.Color.BLACK_CELL.getAttribute());
+        }
+        System.out.println(output);
+    }
+
     public static void show(Board board, Piece.Color color){
         if (color == Piece.Color.BLACK)
             showViewBlack(board);
         else
             showViewWhite(board);
-        showStorage(board.getDeletedPieceManager());
-//        showStorage(board.getCurrentPieceManager());
+        showStorageDeleted(board.getDeletedPieceManager());
+//        showStorageCurrent(board.getCurrentPieceManager());
     }
 
     private static void showViewWhite(Board board){

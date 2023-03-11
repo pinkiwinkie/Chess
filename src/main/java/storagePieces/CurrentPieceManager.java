@@ -1,11 +1,16 @@
-package model;
+package storagePieces;
+
+import model.Board;
+import model.Cell;
+import model.Piece;
+import storagePieces.IDeletedPieceManager;
 
 import java.util.LinkedList;
 import java.util.List;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 
-public class CurrentPieceManager implements IDeletedPieceManager {
+public class CurrentPieceManager implements ICurrentPieceManager {
     private List<Piece> pieces;
     private Board board;
 
@@ -20,11 +25,10 @@ public class CurrentPieceManager implements IDeletedPieceManager {
     }
 
     @Override
-    public int count(Piece.Type type) {
-
+    public int count(Piece.Color color) {
         int count = 0;
         for (Cell cell : board.getCellMap().values())
-            if (cell.getPiece().getType().equals(type))
+            if (cell.getPiece().getType().getColor().equals(color))
                 count++;
         return count;
     }

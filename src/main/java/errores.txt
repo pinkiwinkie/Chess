@@ -26,7 +26,17 @@ NullPointerException Piece:56 this.cell is null
     -> debido al error anterior si seleccionas la coordenada donde
     esta la pieza al no estar en getNextMovements sale una excepcion
     porque es como que no existe.
+*-> creo que arreglado pero no estoy segura.
 
+si pones S0 -> coord to save
+    Exception in thread "main" java.lang.NullPointerException: Cannot invoke "model.Cell.getPiece()" because the return value of "model.Board.getCell(model.Coordinate)" is null
+    	at game.Game.takeCoordinate(Game.java:106)
+    	at game.Game.selectPiece(Game.java:122)
+    	at game.Game.shift(Game.java:71)
+    	at game.Game.start(Game.java:38)
+    	at game.Menu.menu(Menu.java:20)
+    	at Main.main(Main.java:14)
+Hale toma
 
 
 
@@ -34,8 +44,6 @@ NullPointerException Piece:56 this.cell is null
 
 
 Falta JavaDoc:
-    Game
-    Menu
     Cell
     Coordinate
     Current, Deleted Piece Manager
@@ -43,26 +51,15 @@ Falta JavaDoc:
     View
 
 
+/*OPTIONAL*/
 
- private Coordinate takeCoordinate(){
-        Coordinate coordinate;
-        String falseCoordinate;
-        int number;
-        char letter;
-        do {
-            falseCoordinate = Input.getString("Write the coordinate.");
-            number = Changes.separateNumberCoordinate(falseCoordinate);
-            letter = Changes.separateLetterCoordinate(falseCoordinate);
-            coordinate = new Coordinate(letter, number);
-            if (!board.contains(coordinate))
-                System.out.println("Not exists the coordinate.");
-        } while (!board.contains(coordinate));
-        return coordinate;
-    }
-
-
-
-
+Album album;
+Optional<Album> albumOptional = getAlbum("Random Memory Access");
+if(albumOptional.isPresent()){
+    album = albumOptional.get();
+}else{
+   // Avisar al usuario de que no se ha encontrado el album
+}
 
 
 

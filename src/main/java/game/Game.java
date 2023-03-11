@@ -29,7 +29,7 @@ public class Game {
     }
 
     /**
-     * makes the game have a begining and an end.
+     * makes the game have a beginning and an end.
      */
     //CAMBIAR EL IF DEL CONTADOR DEL REY PORQUE ASI NO VA A FINALIZAR PORQUE NO ESTA IMPLEMENTADO.
     public void start(){
@@ -37,8 +37,14 @@ public class Game {
         while (playing){
             shift();
             changeShift();
-//            king = findOutKing(findOutKingEnemy());
-//            if (king != null){
+            king = findOutKing(findOutKingEnemy());
+            if (king == null) {
+                playing = false;
+                if (board.getDeletedPieceManager().count(Piece.Type.BLACK_KING) == 0)
+                        System.out.println("The winner is " + player1);
+                    else
+                        System.out.println("The winner is " + player2);
+            } else {
 //                changeShift();
 //                if (findOutCheck(king))
 //                    System.out.println("The king is in danger.");
@@ -49,7 +55,7 @@ public class Game {
 //                    else
 //                        System.out.println("The winner is " + player2);
 //                }
-//            }
+            }
         }
     }
 
@@ -72,33 +78,40 @@ public class Game {
         else
             shift = Piece.Color.WHITE;
     }
+
+    /**
+     * Ask the user for a coordinate.
+     * @return a valid coordinate.
+     */
     private Coordinate takeCoordinate(){
         Coordinate coordinate;
         String falseCoordinate;
         int number;
         char letter;
-        boolean salir = false;
+        boolean salir = false, salir2 = false;
         do {
-            falseCoordinate = Input.getString("Write the coordinate.");
-            if (falseCoordinate.length() != 2)
-                System.out.println("Solo 2 caracteres validos.");
-            else
-                salir = true;
-        }while(!salir);
-        salir = false;
-        do{
+            do {
+                falseCoordinate = Input.getString("Write the coordinate.");
+                if (falseCoordinate.length() != 2) {
+                    System.out.println("Solo 2 caracteres validos.");
+                } else
+                    salir2 = true;
+            } while (!salir2);
             number = Changes.separateNumberCoordinate(falseCoordinate);
             letter = Changes.separateLetterCoordinate(falseCoordinate);
             coordinate = new Coordinate(letter, number);
-            if (!board.contains(coordinate) && !coordinate.equals(coordSave))
+            if (!board.contains(coordinate) && !coordinate.equals(coordSave)) {
                 System.out.println("Not exists the coordinate.");
-            else
+            }else
                 salir = true;
-        }while(!board.contains(coordinate) && !coordinate.equals(coordSave)|| !salir);
 
+        }while(!board.contains(coordinate) && !coordinate.equals(coordSave)|| !salir);
         return coordinate;
     }
 
+    /**
+     * @return coordinate of the piece to move.
+     */
     private Coordinate selectPiece(){
         boolean isValid = false;
         Coordinate coordinate = null;
@@ -107,7 +120,8 @@ public class Game {
 //            System.out.println(coordinate);
             if (coordinate.equals(coordSave)) {
                 File.save(this);
-                System.out.println("The file has been saved correctly.");
+                System.out.println("The game has been saved correctly.");
+                return coordinate;
             }else if (!board.getCell(coordinate).isEmpty()){
                 if (board.getCell(coordinate).getPiece().getColor() == shift){
                     if (board.getCell(coordinate).getPiece().getNextMovements().size()>0)
@@ -123,6 +137,9 @@ public class Game {
         return coordinate;
     }
 
+    /**
+     * @param coordinate that indicates the user to move the piece around the board.
+     */
     private void movePiece(Coordinate coordinate){
         while (!board.getCell(coordinate).getPiece().moveTo(takeCoordinate())){
             System.out.println("Do not move the piece");

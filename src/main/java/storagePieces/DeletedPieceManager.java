@@ -1,4 +1,8 @@
-package model;
+package storagePieces;
+
+import model.Cell;
+import model.Piece;
+import storagePieces.IDeletedPieceManager;
 
 import java.util.LinkedList;
 import java.util.List;
