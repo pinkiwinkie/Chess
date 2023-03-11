@@ -76,7 +76,7 @@ public class Board {
         p.putInYourPlace();
         p = new WhiteKing(getCell(new Coordinate('D', 8)));
         p.putInYourPlace();
-        p = new WhiteQueen(getCell(new Coordinate('E', 8)));
+        p = new WhiteQueen(getCell(new Coordinate('D', 6)));
         p.putInYourPlace();
 
         p = new BlackRook(getCell(new Coordinate('A', 1)));
@@ -91,7 +91,7 @@ public class Board {
         p.putInYourPlace();
         p = new BlackBishop(getCell(new Coordinate('F', 1)));
         p.putInYourPlace();
-        p = new BlackKing(getCell(new Coordinate('D', 1)));
+        p = new BlackKing(getCell(new Coordinate('D', 3)));
         p.putInYourPlace();
         p = new BlackQueen(getCell(new Coordinate('E', 1)));
         p.putInYourPlace();

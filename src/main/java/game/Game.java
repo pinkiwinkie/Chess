@@ -36,28 +36,29 @@ public class Game {
         Piece king;
         while (playing){
             shift();
-            changeShift();
             king = findOutKing(findOutKingEnemy());
-            if (king == null) {
+            if (king!=null){
+                changeShift();
+            } else{
                 playing = false;
                 if (board.getDeletedPieceManager().count(Piece.Type.BLACK_KING) == 0)
-                        System.out.println("The winner is " + player1);
-                    else
-                        System.out.println("The winner is " + player2);
-            } else {
-//                changeShift();
-//                if (findOutCheck(king))
-//                    System.out.println("The king is in danger.");
-//                else {
-//                    playing = false;
-//                    if (board.getDeletedPieceManager().count(Piece.Type.BLACK_KING) == 0)
-//                        System.out.println("The winner is " + player1);
-//                    else
-//                        System.out.println("The winner is " + player2);
-//                }
+                    System.out.println("The winner is " + player1);
+                else
+                    System.out.println("The winner is " + player2);
             }
         }
     }
+    //                changeShift();
+    //                if (findOutCheck(king))
+    //                    System.out.println("The king is in danger.");
+    //                else {
+    //                    playing = false;
+    //                    if (board.getDeletedPieceManager().count(Piece.Type.BLACK_KING) == 0)
+    //                        System.out.println("The winner is " + player1);
+    //                    else
+    //                        System.out.println("The winner is " + player2);
+    //                }
+
 
     /**
      * indicates what to do each turn.
@@ -150,11 +151,8 @@ public class Game {
     private Piece findOutKing(Piece.Type king){
         Optional<Piece> rey = board.getCellMap().values().stream().filter(
                 c -> !c.isEmpty()
-        ).map(Cell::getPiece).filter(piece -> piece.getType() == king).findFirst();
-        if (rey.isPresent())
-            return rey.get();
-        else
-            return null;
+        ).map(Cell::getPiece).filter(piece -> piece.getType() == king).findAny();
+        return rey.orElse(null);
     }
 
     private Piece.Type findOutKingEnemy(){
