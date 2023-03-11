@@ -109,9 +109,8 @@ public class Game implements Serializable {
             coordinate = takeCoordinate();
 //            System.out.println(coordinate);
             if (coordinate.equals(coordSave)) {
-                String nameFile = Input.getString("Write the name of file.");
-                File.save(this, nameFile+".txt");
-                System.out.println("The game has been saved correctly.");
+                File.save(this);
+                System.out.println("The game has been saved as game.txt correctly.");
                 Menu.menu();
             }else if (!board.getCell(coordinate).isEmpty()){
                 if (board.getCell(coordinate).getPiece().getColor() == shift){
