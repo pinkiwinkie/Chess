@@ -2,10 +2,11 @@ package model.pieces.bishop;
 
 import model.*;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class Bishop extends Piece {
+public abstract class Bishop extends Piece{
 
     public Bishop(Type type, Cell cell) {
         super(type, cell);

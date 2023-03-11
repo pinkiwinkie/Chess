@@ -11,11 +11,12 @@ import storagePieces.DeletedPieceManager;
 import storagePieces.ICurrentPieceManager;
 import storagePieces.IDeletedPieceManager;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class Board {
+public class Board implements Serializable {
     private Map<Coordinate, Cell> cellMap;
     private IDeletedPieceManager deletedPieceManager;
     private ICurrentPieceManager currentPieceManager;

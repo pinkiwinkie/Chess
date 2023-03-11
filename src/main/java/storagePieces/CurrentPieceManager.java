@@ -3,14 +3,11 @@ package storagePieces;
 import model.Board;
 import model.Cell;
 import model.Piece;
-import storagePieces.IDeletedPieceManager;
-
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.diogonunes.jcolor.Ansi.colorize;
-
-public class CurrentPieceManager implements ICurrentPieceManager {
+public class CurrentPieceManager implements ICurrentPieceManager, Serializable {
     private List<Piece> pieces;
     private Board board;
 

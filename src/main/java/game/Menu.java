@@ -2,7 +2,9 @@ package game;
 
 import tools.Input;
 
-public class Menu {
+import java.io.Serializable;
+
+public class Menu implements Serializable {
     /**
      * menu of game
      */

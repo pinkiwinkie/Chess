@@ -3,10 +3,11 @@ package tools;
 import model.*;
 import storagePieces.ICurrentPieceManager;
 import storagePieces.IDeletedPieceManager;
+import java.io.Serializable;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 
-public class View {
+public class View implements Serializable {
 
 
     /**

@@ -8,9 +8,10 @@ import model.Piece;
 import tools.Input;
 import tools.View;
 
+import java.io.Serializable;
 import java.util.Optional;
 
-public class Game {
+public class Game implements Serializable {
     private final Board board;
     private Piece.Color shift;
     private final String player1, player2;
@@ -31,7 +32,6 @@ public class Game {
     /**
      * makes the game have a beginning and an end.
      */
-    //CAMBIAR EL IF DEL CONTADOR DEL REY PORQUE ASI NO VA A FINALIZAR PORQUE NO ESTA IMPLEMENTADO.
     public void start(){
         Piece king;
         while (playing){
@@ -41,24 +41,13 @@ public class Game {
                 changeShift();
             } else{
                 playing = false;
-                if (board.getDeletedPieceManager().count(Piece.Type.BLACK_KING) == 0)
+                if (board.getDeletedPieceManager().count(Piece.Type.BLACK_KING) == 1)
                     System.out.println("The winner is " + player1);
                 else
                     System.out.println("The winner is " + player2);
             }
         }
     }
-    //                changeShift();
-    //                if (findOutCheck(king))
-    //                    System.out.println("The king is in danger.");
-    //                else {
-    //                    playing = false;
-    //                    if (board.getDeletedPieceManager().count(Piece.Type.BLACK_KING) == 0)
-    //                        System.out.println("The winner is " + player1);
-    //                    else
-    //                        System.out.println("The winner is " + player2);
-    //                }
-
 
     /**
      * indicates what to do each turn.
@@ -120,9 +109,10 @@ public class Game {
             coordinate = takeCoordinate();
 //            System.out.println(coordinate);
             if (coordinate.equals(coordSave)) {
-                File.save(this);
+                String nameFile = Input.getString("Write the name of file.");
+                File.save(this, nameFile+".txt");
                 System.out.println("The game has been saved correctly.");
-                return coordinate;
+                Menu.menu();
             }else if (!board.getCell(coordinate).isEmpty()){
                 if (board.getCell(coordinate).getPiece().getColor() == shift){
                     if (board.getCell(coordinate).getPiece().getNextMovements().size()>0)

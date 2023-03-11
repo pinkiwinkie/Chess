@@ -2,9 +2,10 @@ package tools;
 
 import model.Coordinate;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Input {
+public class Input implements Serializable {
 
     /**
      * @param message indicates what the user has to enter.

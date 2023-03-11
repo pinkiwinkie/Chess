@@ -1,12 +1,14 @@
 package model;
 
 import com.diogonunes.jcolor.Attribute;
+
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 
-public abstract class Piece {
+public abstract class Piece implements Serializable {
     protected Set<Coordinate> coordinates = new HashSet<>();
     private Type type;
     protected Cell cell;

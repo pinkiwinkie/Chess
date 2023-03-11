@@ -4,10 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="checkar el current y ver si acaba">
+    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="empieza y acaba&#10;faltan las implementaciones">
+      <change afterPath="$PROJECT_DIR$/A" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PRUEBA1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PTT.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/W.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/File.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Coordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/bishop/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/bishop/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/storagePieces/CurrentPieceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/storagePieces/CurrentPieceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/storagePieces/DeletedPieceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/storagePieces/DeletedPieceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/Input.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +44,11 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="workspaceImportEnabled" value="true" />
@@ -40,13 +59,16 @@
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2K6KfAbte8FQ8obJD7gmGnJdVqP" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
@@ -217,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678543343804</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="empieza y acaba&#10;faltan las implementaciones">
+      <created>1678546162101</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678546162101</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,6 +261,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
     <MESSAGE value="Coordinate" />
     <MESSAGE value="CoordinateTest" />
@@ -241,7 +271,8 @@
     <MESSAGE value="falta jugabilidad" />
     <MESSAGE value="error torre arreglado&#10;arreglar Piece:56 (?)" />
     <MESSAGE value="checkar el current y ver si acaba" />
-    <option name="LAST_COMMIT_MESSAGE" value="checkar el current y ver si acaba" />
+    <MESSAGE value="empieza y acaba&#10;faltan las implementaciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="empieza y acaba&#10;faltan las implementaciones" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
