@@ -16,7 +16,7 @@ public class Game implements Serializable {
     private Piece.Color shift;
     private final String player1, player2;
     private boolean playing;
-    public static final Coordinate coordSave = new Coordinate('S',0);
+    public static final Coordinate coordSave = new Coordinate('S', 0);
 
 
     /**
@@ -33,17 +33,17 @@ public class Game implements Serializable {
     /**
      * makes the game have a beginning and an end.
      */
-    public void start(){
+    public void start() {
         Piece king;
-        while (playing){
+        while (playing) {
             shift();
             king = findOutKing(findOutKingEnemy());
-            if (king!=null){
+            if (king != null) {
                 changeShift();
                 findOutCheck(king);
                 if (findOutCheck(king))
                     System.out.println("Your king is in dangerous.");
-            } else{
+            } else {
                 playing = false;
                 if (board.getDeletedPieceManager().count(Piece.Type.BLACK_KING) == 1)
                     System.out.println("The winner is " + player1);
@@ -56,12 +56,12 @@ public class Game implements Serializable {
     /**
      * indicates what to do each turn.
      */
-    private void shift(){
+    private void shift() {
         if (shift == Piece.Color.WHITE)
             System.out.println("Shift of " + player1 + ".");
         else
             System.out.println("Shift of " + player2 + ".");
-        View.show(board,shift);
+        View.show(board, shift);
         Coordinate c = selectPiece();
         movePiece(c);
     }
@@ -75,9 +75,10 @@ public class Game implements Serializable {
 
     /**
      * Ask the user for a coordinate.
+     *
      * @return a valid coordinate.
      */
-    private Coordinate takeCoordinate(){
+    private Coordinate takeCoordinate() {
         Coordinate coordinate;
         String falseCoordinate;
         int number;
@@ -96,69 +97,69 @@ public class Game implements Serializable {
             coordinate = new Coordinate(letter, number);
             if (!board.contains(coordinate) && !coordinate.equals(coordSave)) {
                 System.out.println("Not exists the coordinate.");
-            }else
+            } else
                 salir = true;
-        }while(!board.contains(coordinate) && !coordinate.equals(coordSave)|| !salir);
+        } while (!board.contains(coordinate) && !coordinate.equals(coordSave) || !salir);
         return coordinate;
     }
 
     /**
      * @return coordinate of the piece to move.
      */
-    private Coordinate selectPiece(){
+    private Coordinate selectPiece() {
         boolean isValid = false;
         Coordinate coordinate = null;
-        while (!isValid){
+        while (!isValid) {
             coordinate = takeCoordinate();
             if (coordinate.equals(coordSave)) {
-                String file = Input.getString("Write name of file");
-                File.save(this,file);
+                File.save(this);
                 System.out.println("The game has been saved as game.txt correctly.");
                 Menu.menu();
-            }else if (!board.getCell(coordinate).isEmpty()){
-                if (board.getCell(coordinate).getPiece().getColor() == shift){
+            } else if (!board.getCell(coordinate).isEmpty()) {
+                if (board.getCell(coordinate).getPiece().getColor() == shift) {
                     board.getCell(coordinate).getPiece().getNextMovements().clear();
-                    if (board.getCell(coordinate).getPiece().getNextMovements().size()>0)
+                    if (board.getCell(coordinate).getPiece().getNextMovements().size() > 0)
                         isValid = true;
                     else
                         System.out.println("This piece has not a movements. Choose an other one.");
-                }else
+                } else
                     System.out.println("This piece is not yours.");
-            }else
+            } else
                 System.out.println("There is not piece in this coordinate.");
         }
         board.highlight(board.getCell(coordinate).getPiece().getNextMovements());
-        View.show(board,shift);
+        View.show(board, shift);
         return coordinate;
     }
 
     /**
      * @param coordinate that indicates the user to move the piece around the board.
      */
-    private void movePiece(Coordinate coordinate){
-        while (!board.getCell(coordinate).getPiece().moveTo(takeCoordinate())){
+    private void movePiece(Coordinate coordinate) {
+        while (!board.getCell(coordinate).getPiece().moveTo(takeCoordinate())) {
             System.out.println("Do not move the piece");
         }
         board.resetColor();
-        View.show(board,shift);
+        View.show(board, shift);
     }
-    private Piece findOutKing(Piece.Type king){
+
+    private Piece findOutKing(Piece.Type king) {
         Optional<Piece> rey = board.getCellMap().values().stream().filter(
                 c -> !c.isEmpty()
         ).map(Cell::getPiece).filter(piece -> piece.getType() == king).findAny();
         return rey.orElse(null);
     }
 
-    private Piece.Type findOutKingEnemy(){
+    private Piece.Type findOutKingEnemy() {
         if (shift == Piece.Color.WHITE)
             return Piece.Type.BLACK_KING;
         else
             return Piece.Type.WHITE_KING;
     }
 
-    private boolean findOutCheck(Piece king){
-        for (Piece piece: board.getCellMap().values().stream().filter(cell -> !cell.isEmpty()).map(Cell::getPiece).
-                filter(piece -> piece.getColor() != king.getColor()).toList()){
+    private boolean findOutCheck(Piece king) {
+        for (Piece piece : board.getCellMap().values().stream().filter(cell -> !cell.isEmpty()).map(Cell::getPiece).
+                filter(piece -> piece.getColor() != king.getColor()).toList()) {
             if (piece.getNextMovements().contains(king.getCell().getCoordinate()))
                 return true;
         }

@@ -76,7 +76,7 @@ public class Cell implements Serializable {
 
     /**
      * @return true if cell not contains piece.
-     *          false if cell contains piece.
+     * false if cell contains piece.
      */
     public boolean isEmpty() {
         return piece == null;

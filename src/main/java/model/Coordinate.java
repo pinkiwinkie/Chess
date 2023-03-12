@@ -23,7 +23,6 @@ public class Coordinate implements Serializable {
     }
 
     /**
-     *
      * this method return the next coordinate of the position
      */
 

@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="error peon">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="empieza y acaba&#10;javadoc done">
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/File.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mistakes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mistakes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Coordinate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tools/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678648005088</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="empieza y acaba&#10;javadoc done">
+      <created>1678652937406</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1678652937406</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,7 +289,8 @@
     <MESSAGE value="commit de copia just in case" />
     <MESSAGE value="de ahora" />
     <MESSAGE value="error peon" />
-    <option name="LAST_COMMIT_MESSAGE" value="error peon" />
+    <MESSAGE value="empieza y acaba&#10;javadoc done" />
+    <option name="LAST_COMMIT_MESSAGE" value="empieza y acaba&#10;javadoc done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
