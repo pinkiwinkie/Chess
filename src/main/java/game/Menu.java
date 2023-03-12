@@ -22,17 +22,18 @@ public class Menu implements Serializable {
                 game = new Game();
                 game.start();
             } else if (option == 3) {
-                try {
-                    gameAux = File.load();
-                    assert gameAux != null;
-                    gameAux.start();
-                }catch (Exception e){
-                    System.out.println("error");
-                }
+//                try {
+//                    System.out.println(File.);
+//                    gameAux = File.load(file);
+//                    assert gameAux != null;
+//                    gameAux.start();
+//                }catch (Exception e){
+//                    System.err.println("mistake");
+//                }
             } else if (option == 4) {
                 exit = true;
             }else{
-                System.out.println("Introduce a valid number");
+                System.err.println("Introduce a valid number");
             }
         }while(!exit);
     }
