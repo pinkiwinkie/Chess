@@ -18,6 +18,7 @@ public class Game implements Serializable {
     private boolean playing;
     public static final Coordinate coordSave = new Coordinate('S',0);
 
+
     /**
      * game builder.
      */
@@ -38,7 +39,10 @@ public class Game implements Serializable {
             shift();
             king = findOutKing(findOutKingEnemy());
             if (king!=null){
+                findOutCheck(king);
                 changeShift();
+                if (findOutCheck(king))
+                    System.out.println("Your king is in dangerous.");
             } else{
                 playing = false;
                 if (board.getDeletedPieceManager().count(Piece.Type.BLACK_KING) == 1)
@@ -119,7 +123,8 @@ public class Game implements Serializable {
                         isValid = true;
                     else
                         System.out.println("This piece has not a movements. Choose an other one.");
-                }
+                }else
+                    System.out.println("This piece is not yours.");
             }else
                 System.out.println("There is not piece in this coordinate.");
         }
@@ -135,6 +140,10 @@ public class Game implements Serializable {
         while (!board.getCell(coordinate).getPiece().moveTo(takeCoordinate())){
             System.out.println("Do not move the piece");
         }
+//        if (board.getCell(coordinate).getPiece() == null){}
+//        else {
+//            board.getCell(coordinate).getPiece().getNextMovements().clear();
+//        }
         board.resetColor();
         View.show(board,shift);
     }
@@ -153,6 +162,11 @@ public class Game implements Serializable {
     }
 
     private boolean findOutCheck(Piece king){
+        for (Piece piece: board.getCellMap().values().stream().filter(cell -> !cell.isEmpty()).map(Cell::getPiece).
+                filter(piece -> piece.getColor() != king.getColor()).toList()){
+            if (piece.getNextMovements().contains(king.getCell().getCoordinate()))
+                return true;
+        }
         return false;
     }
 }

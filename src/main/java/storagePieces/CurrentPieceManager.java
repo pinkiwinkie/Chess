@@ -22,11 +22,12 @@ public class CurrentPieceManager implements ICurrentPieceManager, Serializable {
     }
 
     @Override
-    public int count(Piece.Color color) {
+    public int count(Piece.Color color, Piece.Type type) {
         int count = 0;
         for (Cell cell : board.getCellMap().values())
-            if (cell.getPiece().getType().getColor().equals(color))
-                count++;
+            if (cell != null && !cell.isEmpty())
+                if (cell.getPiece().getType().equals(type))
+                    count++;
         return count;
     }
 

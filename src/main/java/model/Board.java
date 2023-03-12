@@ -77,7 +77,7 @@ public class Board implements Serializable {
         p.putInYourPlace();
         p = new WhiteKing(getCell(new Coordinate('D', 8)));
         p.putInYourPlace();
-        p = new WhiteQueen(getCell(new Coordinate('D', 6)));
+        p = new WhiteQueen(getCell(new Coordinate('E', 8)));
         p.putInYourPlace();
 
         p = new BlackRook(getCell(new Coordinate('A', 1)));
@@ -92,9 +92,9 @@ public class Board implements Serializable {
         p.putInYourPlace();
         p = new BlackBishop(getCell(new Coordinate('F', 1)));
         p.putInYourPlace();
-        p = new BlackKing(getCell(new Coordinate('D', 3)));
-        p.putInYourPlace();
         p = new BlackQueen(getCell(new Coordinate('E', 1)));
+        p.putInYourPlace();
+        p = new BlackKing(getCell(new Coordinate('D', 1)));
         p.putInYourPlace();
         for (int i = 0; i < 8; i++) {
             p = new BlackPawn(getCell(new Coordinate((char) ('A' + i), 2)));
@@ -107,7 +107,7 @@ public class Board implements Serializable {
     /**
      * @param coordinate that checks if it is on the board.
      * @return true if exists the coordinate.
-     *          false if not exists the coordinate.
+     * false if not exists the coordinate.
      */
     public boolean contains(Coordinate coordinate) {
         return coordinate.getLetter() >= 'A' &&

@@ -25,10 +25,10 @@ public class Menu implements Serializable {
                 game.start();
             } else if (option == 3) {
                 try {
-                    File file = fileChooser();
-                    gameAux = File.load(file);
-                    assert gameAux != null;
-                    gameAux.start();
+//                    File file = fileChooser();
+//                    gameAux = File.load(file);
+//                    assert gameAux != null;
+//                    gameAux.start();
                 }catch (Exception e){
                     System.err.println("mistake");
                 }

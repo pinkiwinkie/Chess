@@ -60,6 +60,7 @@ public abstract class Piece implements Serializable {
         cell.setPiece(null);
         cell = cell.getBoard().getCell(coordinate);
         putInYourPlace();
+        cell.getPiece().getNextMovements().clear();
         return true;
     }
 

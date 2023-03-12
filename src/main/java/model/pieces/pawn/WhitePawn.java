@@ -3,6 +3,7 @@ package model.pieces.pawn;
 import model.Cell;
 import model.Coordinate;
 import model.Piece;
+import model.pieces.queen.BlackQueen;
 import model.pieces.queen.WhiteQueen;
 
 import java.util.HashSet;
@@ -32,11 +33,12 @@ public class WhitePawn extends Pawn {
         return coordinates;
     }
 
+
     @Override
-    public void transform() {
-        Piece p = getCell().getPiece();
-        new WhiteQueen(getCell());
-        getCell().getBoard().getDeletedPieceManager().addPiece(p);
-        cell = null;
+    public void transform(Piece piece) {
+        getCell().getBoard().getDeletedPieceManager().addPiece(piece);
+        piece = new WhiteQueen(getCell());
+        piece.putInYourPlace();
+        getCell().getBoard().getCurrentPieceManager().addPiece(piece);
     }
 }

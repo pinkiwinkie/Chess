@@ -15,8 +15,10 @@ public abstract class Pawn extends Piece {
     public Pawn(Type type, Cell cell) {
         super(type, cell);
     }
-
-    public abstract void transform();
+    /**
+     * @param piece that you convert in queen.
+     */
+    public abstract void transform(Piece piece);
 
     @Override
     public boolean moveTo(Coordinate c) {
@@ -24,7 +26,7 @@ public abstract class Pawn extends Piece {
         if (move) {
             if (getCell().getCoordinate().getNumber() == 8 ||
                     getCell().getCoordinate().getNumber() == 1)
-                transform();
+                transform(this);
         }
         return move;
     }

@@ -3,6 +3,7 @@ package tools;
 import model.*;
 import storagePieces.ICurrentPieceManager;
 import storagePieces.IDeletedPieceManager;
+
 import java.io.Serializable;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
@@ -13,7 +14,7 @@ public class View implements Serializable {
     /**
      * @param storage
      */
-    public static void showStorageDeleted(IDeletedPieceManager storage){
+    public static void showStorageDeleted(IDeletedPieceManager storage) {
         String output = "DELETED PIECES\n";
         for (Piece.Type type : Piece.Type.values()) {
             output += colorize(" " + type.getShape() + " ", type.getColor().getPieceColor(), Cell.Color.WHITE_CELL.getAttribute());
@@ -25,28 +26,29 @@ public class View implements Serializable {
         System.out.println(output);
     }
 
-    public static void showStorageCurrent(ICurrentPieceManager storage){
+    public static void showStorageCurrent(ICurrentPieceManager storage) {
         String output = "CURRENT PIECES\n";
         for (Piece.Type type : Piece.Type.values()) {
             output += colorize(" " + type.getShape() + " ", type.getColor().getPieceColor(), Cell.Color.WHITE_CELL.getAttribute());
         }
         output += "\n";
-        for (Piece.Color color : Piece.Color.values()) {
-            output += colorize(" " + storage.count(color) + " ", color.getPieceColor(), Cell.Color.BLACK_CELL.getAttribute());
-        }
+
+        for (Piece.Type type : Piece.Type.values())
+            output += colorize(" " + storage.count(type.getColor(), type) + " ", type.getColor().getPieceColor(), Cell.Color.BLACK_CELL.getAttribute());
+
         System.out.println(output);
     }
 
-    public static void show(Board board, Piece.Color color){
+    public static void show(Board board, Piece.Color color) {
         if (color == Piece.Color.BLACK)
             showViewBlack(board);
         else
             showViewWhite(board);
         showStorageDeleted(board.getDeletedPieceManager());
-//        showStorageCurrent(board.getCurrentPieceManager());
+        showStorageCurrent(board.getCurrentPieceManager());
     }
 
-    private static void showViewWhite(Board board){
+    private static void showViewWhite(Board board) {
         String output = "   A  B  C  D  E  F  G  H\n";
         for (int i = 0; i < 8; i++) {
             output += (i + 1) + " ";
@@ -59,7 +61,7 @@ public class View implements Serializable {
         System.out.println(output);
     }
 
-    private static void showViewBlack(Board board){
+    private static void showViewBlack(Board board) {
         String output = "   A  B  C  D  E  F  G  H\n";
         for (int i = 8; i > 0; i--) {
             output += i + " ";

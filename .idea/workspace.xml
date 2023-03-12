@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="commit de copia just in case">
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/File.java" afterDir="false" />
+    <list default="true" id="449733ad-5df8-4110-a0d0-b5098cdb168e" name="Changes" comment="de ahora">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pruebas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/errores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mistakes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/BlackPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/BlackPawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/WhitePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/pieces/pawn/WhitePawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/storagePieces/CurrentPieceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/storagePieces/CurrentPieceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/storagePieces/DeletedPieceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/storagePieces/DeletedPieceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/storagePieces/ICurrentPieceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/storagePieces/ICurrentPieceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tools/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tools/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,8 +151,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.CoordinateTest.down" />
         <item itemvalue="JUnit.CoordinateTest.right" />
+        <item itemvalue="JUnit.CoordinateTest.down" />
         <item itemvalue="JUnit.CoordinateTest.up" />
       </list>
     </recent_temporary>
@@ -239,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678553737972</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="de ahora">
+      <created>1678620203123</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678620203123</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -266,18 +284,8 @@
     <MESSAGE value="checkar el current y ver si acaba" />
     <MESSAGE value="empieza y acaba&#10;faltan las implementaciones" />
     <MESSAGE value="commit de copia just in case" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit de copia just in case" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/pieces/pawn/WhitePawn.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="de ahora" />
+    <option name="LAST_COMMIT_MESSAGE" value="de ahora" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

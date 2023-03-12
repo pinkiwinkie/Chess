@@ -36,10 +36,27 @@ si pones S0 -> coord to save
     	at game.Game.start(Game.java:38)
     	at game.Menu.menu(Menu.java:20)
     	at Main.main(Main.java:14)
-Hale toma
+ARREGLADO
 
+de d2 a c1 con el peon matando en c1 a una ficha->
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "model.Cell.getColor()" because "this.cell" is null
+	at model.Piece.toString(Piece.java:68)
+	at java.base/java.lang.StringConcatHelper.stringOf(StringConcatHelper.java:453)
+	at model.Cell.toString(Cell.java:77)
+	at java.base/java.lang.StringConcatHelper.stringOf(StringConcatHelper.java:453)
+	at java.base/java.lang.StringConcatHelper.simpleConcat(StringConcatHelper.java:408)
+	at tools.View.showViewWhite(View.java:54)
+	at tools.View.show(View.java:44)
+	at game.Game.movePiece(Game.java:139)
+	at game.Game.shift(Game.java:62)
+	at game.Game.start(Game.java:38)
+	at game.Menu.menu(Menu.java:25)
+	at Main.main(Main.java:14)
+el peon te deja moverlo tanto hacia delante como hacia detras y ademas se seleciona en rojo la pieza seleccionada.
 
-
+al menos , si pones una coord que no es valida no sale NullPointerException
+y cuando mueves hacia detras te sale los getnextmovements de la ronda anterior mas los actuales.
+-> ARREGLADO
 
 
 
