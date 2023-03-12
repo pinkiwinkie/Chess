@@ -12,7 +12,7 @@ public class View implements Serializable {
 
 
     /**
-     * @param storage
+     * @param storage of pieces deleted
      */
     public static void showStorageDeleted(IDeletedPieceManager storage) {
         String output = "DELETED PIECES\n";
@@ -26,6 +26,9 @@ public class View implements Serializable {
         System.out.println(output);
     }
 
+    /**
+     * @param storage of pieces deleted
+     */
     public static void showStorageCurrent(ICurrentPieceManager storage) {
         String output = "CURRENT PIECES\n";
         for (Piece.Type type : Piece.Type.values()) {
@@ -39,6 +42,9 @@ public class View implements Serializable {
         System.out.println(output);
     }
 
+    /**
+     * to show board
+     */
     public static void show(Board board, Piece.Color color) {
         if (color == Piece.Color.BLACK)
             showViewBlack(board);

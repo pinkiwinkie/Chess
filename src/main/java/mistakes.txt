@@ -59,15 +59,6 @@ y cuando mueves hacia detras te sale los getnextmovements de la ronda anterior m
 -> ARREGLADO
 
 
-
-Falta JavaDoc:
-    Cell
-    Coordinate
-    Current, Deleted Piece Manager
-    Piece
-    View
-
-
 /*OPTIONAL*/
 
 Album album;
@@ -77,14 +68,6 @@ if(albumOptional.isPresent()){
 }else{
    // Avisar al usuario de que no se ha encontrado el album
 }
-
-
-
-
-
-
-
-
 
 
 

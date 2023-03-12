@@ -6,6 +6,9 @@ public class Coordinate implements Serializable {
     private int number;
     private char letter;
 
+    /**
+     * coordinate builder
+     */
     public Coordinate(char letter, int number) {
         this.number = number;
         this.letter = Character.toUpperCase(letter);
@@ -18,6 +21,11 @@ public class Coordinate implements Serializable {
     public char getLetter() {
         return letter;
     }
+
+    /**
+     *
+     * this method return the next coordinate of the position
+     */
 
     public Coordinate up() {
         return new Coordinate(letter, number - 1);

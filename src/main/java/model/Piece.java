@@ -13,6 +13,9 @@ public abstract class Piece implements Serializable {
     private Type type;
     protected Cell cell;
 
+    /**
+     * piece builder
+     */
     public Piece(Type type, Cell cell) {
         this.cell = cell;
         this.type = type;
@@ -34,6 +37,9 @@ public abstract class Piece implements Serializable {
         return cell;
     }
 
+    /**
+     * put piece at cell on board.
+     */
     public void putInYourPlace() {
         cell.setPiece(this);
     }
@@ -49,6 +55,11 @@ public abstract class Piece implements Serializable {
                 coordinates.add(coordinate);
     }
 
+    /**
+     * @param coordinate to move the piece.
+     * @return true if the piece can move.
+     *          false if the can not move.
+     */
     public boolean moveTo(Coordinate coordinate) {
         if (!getNextMovements().contains(coordinate))
             return false;

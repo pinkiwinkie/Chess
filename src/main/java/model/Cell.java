@@ -13,6 +13,9 @@ public class Cell implements Serializable {
     private final Color original;
     private Color color;
 
+    /**
+     * cell builder
+     */
     public Cell(Board board, Coordinate coordinate) {
         this.board = board;
         this.coordinate = coordinate;
@@ -25,10 +28,16 @@ public class Cell implements Serializable {
         this.color = original;
     }
 
+    /**
+     * put original color at cell
+     */
     public void resetColor() {
         color = original;
     }
 
+    /**
+     * change color of cells
+     */
     public void highlight() {
         if (isEmpty()) {
             if (original == Color.BLACK_CELL)
@@ -65,6 +74,10 @@ public class Cell implements Serializable {
         this.piece = piece;
     }
 
+    /**
+     * @return true if cell not contains piece.
+     *          false if cell contains piece.
+     */
     public boolean isEmpty() {
         return piece == null;
     }

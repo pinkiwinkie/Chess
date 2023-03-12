@@ -39,8 +39,8 @@ public class Game implements Serializable {
             shift();
             king = findOutKing(findOutKingEnemy());
             if (king!=null){
-                findOutCheck(king);
                 changeShift();
+                findOutCheck(king);
                 if (findOutCheck(king))
                     System.out.println("Your king is in dangerous.");
             } else{
@@ -98,7 +98,6 @@ public class Game implements Serializable {
                 System.out.println("Not exists the coordinate.");
             }else
                 salir = true;
-
         }while(!board.contains(coordinate) && !coordinate.equals(coordSave)|| !salir);
         return coordinate;
     }
@@ -111,7 +110,6 @@ public class Game implements Serializable {
         Coordinate coordinate = null;
         while (!isValid){
             coordinate = takeCoordinate();
-//            System.out.println(coordinate);
             if (coordinate.equals(coordSave)) {
                 String file = Input.getString("Write name of file");
                 File.save(this,file);
@@ -119,6 +117,7 @@ public class Game implements Serializable {
                 Menu.menu();
             }else if (!board.getCell(coordinate).isEmpty()){
                 if (board.getCell(coordinate).getPiece().getColor() == shift){
+                    board.getCell(coordinate).getPiece().getNextMovements().clear();
                     if (board.getCell(coordinate).getPiece().getNextMovements().size()>0)
                         isValid = true;
                     else
@@ -140,10 +139,6 @@ public class Game implements Serializable {
         while (!board.getCell(coordinate).getPiece().moveTo(takeCoordinate())){
             System.out.println("Do not move the piece");
         }
-//        if (board.getCell(coordinate).getPiece() == null){}
-//        else {
-//            board.getCell(coordinate).getPiece().getNextMovements().clear();
-//        }
         board.resetColor();
         View.show(board,shift);
     }
