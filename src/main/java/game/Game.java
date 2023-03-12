@@ -109,7 +109,7 @@ public class Game implements Serializable {
             coordinate = takeCoordinate();
 //            System.out.println(coordinate);
             if (coordinate.equals(coordSave)) {
-                String file = Input.getString("Wire name of file");
+                String file = Input.getString("Write name of file");
                 File.save(this,file);
                 System.out.println("The game has been saved as game.txt correctly.");
                 Menu.menu();

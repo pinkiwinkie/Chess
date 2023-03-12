@@ -20,8 +20,8 @@ public class File {
      * @throws IOException this class is the general class of exceptions produced by failed or interrupted I/O operations.
      * @throws ClassNotFoundException if game not exists.
      */
-    public static Game load(String file) throws IOException, ClassNotFoundException {
-        try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
+    public static Game load(File file) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file.toString())))) {
             return (Game)ois.readObject();
         } catch (EOFException ignored) {
             return null;
